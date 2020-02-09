@@ -74,7 +74,7 @@ brew "parallel"
 # Parallel versions of OpenSSH and related tools
 brew "pssh"
 # Cross-platform application and UI framework
-brew "qt@5.5"
+brew "lumaxis/custom-formulae/qt@5.5"
 # Ruby version manager
 brew "rbenv"
 # Persistent key-value database, with built-in net interface
