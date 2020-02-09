@@ -2,7 +2,6 @@ SHELL = /bin/zsh
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
 PATH := $(DOTFILES_DIR)/bin:$(PATH)
-NODENV_DIR := $(HOME)/.nodenv
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 
@@ -56,7 +55,7 @@ git: brew
 	brew install git git-extras
 
 npm: brew
-	if ! [ -d $(NODENV_DIR) ]; then (export PATH="$HOME/.nodenv/shims:$PATH"; curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash); fi
+	(export PATH="$HOME/.nodenv/shims:$PATH"; curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash)
 
 ruby: brew
 	brew install ruby
