@@ -23,4 +23,6 @@ else
   echo "Installing dotfiles..."
   mkdir -p "$TARGET"
   eval "$CMD"
+  cd $TARGET
+  make
 fi
