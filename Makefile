@@ -13,7 +13,6 @@ macos: sudo core-macos packages link mackup
 
 linux: sudo core-linux brew-linux link
 	brew install starship
-	echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> system/.custom
 
 core-macos: brew-macos zsh git npm ruby
 
@@ -50,7 +49,9 @@ brew-macos:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
 
 brew-linux:
-	is-executable brew || sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh | bash
+	echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> system/.custom
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
