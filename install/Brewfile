@@ -29,6 +29,8 @@ brew "python"
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Distributed search & analytics engine
+brew "elasticsearch"
 # Functional metaprogramming aware language built on Erlang VM
 brew "exercism"
 # Play, record, convert, and stream audio and video

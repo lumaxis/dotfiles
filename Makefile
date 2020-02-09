@@ -62,7 +62,7 @@ ruby: brew
 	brew install ruby
 
 brew-packages: brew
-	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
+	brew cask install homebrew/cask-versions/adoptopenjdk8 && brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
 cask-apps: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
