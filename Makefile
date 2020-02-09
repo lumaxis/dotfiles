@@ -9,7 +9,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 all: $(OS)
 
-macos: sudo core-macos packages link
+macos: sudo core-macos packages link mackup
 
 linux: core-linux link
 
@@ -72,6 +72,10 @@ node-packages: npm
 
 gems: ruby
 	export PATH="/usr/local/opt/ruby/bin:$PATH"; gem install $(shell cat install/Gemfile)
+
+mackup: link
+	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
+	ln -s ~/.config/mackup/.mackup.cfg ~
 
 test:
 	bats test/*.bats

@@ -1,0 +1,74 @@
+
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+prompt_order = [
+    "username",
+    "hostname",
+    "directory",
+    "git_branch",
+    "git_state",
+    "git_status",
+    "package",
+    "dotnet",
+    "golang",
+    "java",
+    "nodejs",
+    "python",
+    "ruby",
+    "rust",
+    "kubernetes",
+    "nix_shell",
+    "conda",
+    "memory_usage",
+    "aws",
+    "env_var",
+    "cmd_duration",
+    "line_break",
+    "jobs",
+    "battery",
+    "time",
+    "character",
+]
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                   # The name of the module we are configuring is "character"
+symbol = "➜"                  # The "symbol" segment is being set to "➜"
+use_symbol_for_status = true  # Indicate error status by changing the symbol.
+
+[[battery.display]]
+threshold = 20
+
+[aws]
+disabled = true
+
+[conda]
+disabled = true
+
+[git_branch]
+style = "bold yellow"
+
+[git_state]
+progress_divider = " of "
+cherry_pick = "🍒 PICKING"
+style = "bold purple"
+
+[git_status]
+stashed = ""
+
+[java]
+disabled = true
+
+[kubernetes]
+symbol = "☸️  "
+disabled = false
+
+[nix_shell]
+disabled = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[rust]
+disabled = false
