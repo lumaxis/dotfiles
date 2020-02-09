@@ -24,4 +24,6 @@ fi
 
 # The Fuck
 
-eval "$(thefuck --alias)"
+if is-executable thefuck; then
+  eval "$(thefuck --alias)"
+fi
