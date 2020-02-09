@@ -12,6 +12,8 @@ all: $(OS)
 macos: sudo core-macos packages link mackup
 
 linux: sudo core-linux brew-linux link
+	brew install starship
+	echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> system/.path
 
 core-macos: brew-macos zsh git npm ruby
 
