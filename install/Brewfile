@@ -23,16 +23,12 @@ brew "awscli"
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Remove large files or passwords from Git history like git-filter-branch
-brew "bfg"
 # Interpreted, interactive, object-oriented programming language
 brew "python"
 # Decentralized dependency manager for Cocoa
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Distributed search & analytics engine
-brew "elasticsearch"
 # Functional metaprogramming aware language built on Erlang VM
 brew "exercism"
 # Play, record, convert, and stream audio and video
