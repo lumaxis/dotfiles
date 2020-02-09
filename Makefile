@@ -11,17 +11,17 @@ all: $(OS)
 
 macos: sudo core-macos packages link mackup
 
-linux: core-linux link
+linux: sudo core-linux brew-linux link
 
-core-macos: brew zsh git npm ruby
+core-macos: brew-macos zsh git npm ruby
 
 core-linux:
-	apt-get update
-	apt-get upgrade -y
-	apt-get dist-upgrade -f
-	chsh -s $SHELL
+	sudo apt-get update
+	sudo apt-get upgrade -y
+	sudo apt-get install build-essential -y
+	sudo apt-get dist-upgrade -y -f
 
-stow-macos: brew
+stow-macos: brew-macos
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
@@ -44,35 +44,40 @@ unlink: stow-$(OS)
 	stow --delete -t $(XDG_CONFIG_HOME) config
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
-brew:
+brew-macos:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
+
+brew-linux:
+	is-executable brew || sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 
 zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
-zsh: brew
+zsh: brew-$(OS)
 	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
 
-git: brew
+git: brew-$(OS)
 	brew install git git-extras
 
-npm: brew
-	(export PATH="$HOME/.nodenv/shims:$PATH"; curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash)
+npm: PATH="$HOME/.nodenv/shims:$PATH"
+npm: brew-$(OS)
+	curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
-ruby: brew
+ruby: brew-$(OS)
 	brew install ruby
 
-brew-packages: brew
+brew-packages: brew-$(OS)
 	brew cask install homebrew/cask-versions/adoptopenjdk8 && brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
-cask-apps: brew
+cask-apps: brew-macos
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
 node-packages: npm
 	. npm install -g $(shell cat install/npmfile)
 
+gems: PATH="/usr/local/opt/ruby/bin:$PATH"
 gems: ruby
-	export PATH="/usr/local/opt/ruby/bin:$PATH"; gem install $(shell cat install/Gemfile)
+	gem install $(shell cat install/Gemfile)
 
 mackup: link
 	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
