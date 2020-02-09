@@ -1,8 +1,8 @@
-SHELL = /bin/bash
+SHELL = /bin/zsh
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
 PATH := $(DOTFILES_DIR)/bin:$(PATH)
-NVM_DIR := $(HOME)/.nvm
+NODENV_DIR := $(HOME)/.nodenv
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 
@@ -14,7 +14,7 @@ macos: sudo core-macos packages link
 
 linux: core-linux link
 
-core-macos: brew bash git npm ruby
+core-macos: brew zsh git npm ruby
 
 core-linux:
 	apt-get update
@@ -47,17 +47,16 @@ unlink: stow-$(OS)
 brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
 
-bash: BASH=/usr/local/bin/bash
-bash: SHELLS=/private/etc/shells
-bash: brew
-	if ! grep -q $(BASH) $(SHELLS); then brew install bash bash-completion@2 pcre && sudo append $(BASH) $(SHELLS) && chsh -s $(BASH); fi
+zsh: ZSH=/usr/local/bin/zsh
+zsh: SHELLS=/private/etc/shells
+zsh: brew
+	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
 
 git: brew
 	brew install git git-extras
 
-npm:
-	if ! [ -d $(NVM_DIR)/.git ]; then git clone https://github.com/creationix/nvm.git $(NVM_DIR); fi
-	. $(NVM_DIR)/nvm.sh; nvm install --lts
+npm: brew
+	if ! [ -d $(NODENV_DIR) ]; then (export PATH="$HOME/.nodenv/shims:$PATH"; curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash); fi
 
 ruby: brew
 	brew install ruby
@@ -67,11 +66,10 @@ brew-packages: brew
 
 cask-apps: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
-	defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
 node-packages: npm
-	. $(NVM_DIR)/nvm.sh; npm install -g $(shell cat install/npmfile)
+	. npm install -g $(shell cat install/npmfile)
 
 gems: ruby
 	export PATH="/usr/local/opt/ruby/bin:$PATH"; gem install $(shell cat install/Gemfile)

@@ -1,0 +1,3 @@
+# nodenv
+
+eval "$(nodenv init -)"

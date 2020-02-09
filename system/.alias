@@ -1,6 +1,6 @@
 # Shortcuts
 
-alias reload="source ~/.bash_profile"
+alias reload="source ~/.zshrc"
 alias _="sudo"
 alias g="git"
 alias rr="rm -rf"
@@ -51,6 +51,18 @@ alias treed="tree -d"
 alias tree1="tree -d -L 1"
 alias tree2="tree -d -L 2"
 
+# Configs
+alias zshconfig="code ~/.zshrc"
+alias sshconfig="code ~/.ssh/config"
+
+# VS Code
+
+alias code="code-insiders"
+
+# kubectl
+
+alias k="kubectl"
+
 # npm
 
 alias ni="npm install"
@@ -67,7 +79,7 @@ alias ipl="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([
 # Request using GET, POST, etc. method
 
 for METHOD in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-  alias "$METHOD"="lwp-request -m '$METHOD'"
+  alias "$METHOD"="curl -X '$METHOD'"
 done
 unset METHOD
 
@@ -76,5 +88,3 @@ unset METHOD
 alias hosts="sudo $EDITOR /etc/hosts"
 alias quit="exit"
 alias week="date +%V"
-alias speedtest="wget -O /dev/null http://speed.transip.nl/100mb.bin"
-alias grip="grip -b"

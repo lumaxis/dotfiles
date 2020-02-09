@@ -8,8 +8,7 @@ alias gg="$DOTFILES_GIT_GUI"
 
 alias cask="brew cask"
 
-alias chrome="open -a ~/Applications/Google\ Chrome.app"
-alias canary="open -a ~/Applications/Google\ Chrome\ Canary.app"
+alias edgebeta="open -a ~/Applications/Microsoft\ Edge\ Beta.app"
 alias firefox="open -a ~/Applications/Firefox.app"
 
 # Exclude macOS specific files in ZIP archives
@@ -60,10 +59,6 @@ alias killfinder="killall Finder"
 alias killdock="killall Dock"
 alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
-
-# Kill all the tabs in Chrome to free up memory
-
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Show system information
 

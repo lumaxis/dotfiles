@@ -1,4 +1,4 @@
-# .files
+# dotfiles
 
 These are my dotfiles. Take anything you want, but at your own risk.
 
@@ -11,9 +11,8 @@ It targets macOS systems, but it should work on \*nix as well (with `apt-get`).
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - Latest Ruby (packages: [Gemfile](./install/Gemfile))
 - Latest Git, Bash 4, Python 3, GNU coreutils, curl
-- [Hammerspoon](https://www.hammerspoon.org) (config: [keybindings & window management](./config/hammerspoon))
 - [Mackup](https://github.com/lra/mackup) (sync application settings)
-- `$EDITOR` (and Git editor) is [GNU nano](https://www.nano-editor.org)
+- `$EDITOR` (and Git editor) is [VS Code](https://code.visualstudio.com/)
 
 ## Install
 
@@ -25,15 +24,15 @@ On a sparkling fresh installation of macOS:
 The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS).
 Then, install this repo with `curl` available:
 
-    bash -c "`curl -fsSL https://raw.githubusercontent.com/webpro/dotfiles/master/remote-install.sh`"
+    bash -c "`curl -fsSL https://raw.githubusercontent.com/lumaxis/dotfiles/master/remote-install.sh`"
 
-This will clone (using `git`), or download (using `curl` or `wget`), this repo to `~/.dotfiles`. Alternatively, clone manually into the desired location:
+This will clone (using `git`), or download (using `curl` or `wget`), this repo to `~/dotfiles`. Alternatively, clone manually into the desired location:
 
-    git clone https://github.com/webpro/dotfiles.git ~/.dotfiles
+    git clone https://github.com/lumaxis/dotfiles.git ~/dotfiles
 
 Use the [Makefile](./Makefile) to install everything [listed above](#package-overview), and symlink [runcom](./runcom) and [config](./config) (using [stow](https://www.gnu.org/software/stow/)):
 
-    cd ~/.dotfiles
+    cd ~/dotfiles
     make
 
 ## Post-install
@@ -41,7 +40,7 @@ Use the [Makefile](./Makefile) to install everything [listed above](#package-ove
 - `dotfiles dock` (set [Dock items](./macos/dock.sh))
 - `dotfiles macos` (set [macOS defaults](./macos/defaults.sh))
 - Mackup
-  - Log in to Dropbox (and wait until synced)
+  - Log in to iCloud (and wait until synced)
   - `ln -s ~/.config/mackup/.mackup.cfg ~` (until [#632](https://github.com/lra/mackup/pull/632) is fixed)
   - `mackup restore`
 
@@ -51,7 +50,7 @@ Use the [Makefile](./Makefile) to install everything [listed above](#package-ove
     Usage: dotfiles <command>
 
     Commands:
-       clean            Clean up caches (brew, npm, gem, rvm)
+       clean            Clean up caches (brew, gem)
        dock             Apply macOS Dock settings
        edit             Open dotfiles in IDE (code) and Git GUI (stree)
        help             This help message
