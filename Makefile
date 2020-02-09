@@ -25,7 +25,7 @@ stow-macos: brew-macos
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
-	is-executable stow || apt-get -y install stow
+	is-executable stow || sudo apt-get -y install stow
 
 sudo:
 	sudo -v
