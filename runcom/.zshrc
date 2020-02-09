@@ -23,12 +23,12 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Source the dotfiles (order matters)
 
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,oh-my-zsh,grep,prompt,autojump,nodenv,rbenv,completion,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,oh-my-zsh,grep,prompt,autojump,completion,custom}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
 if is-macos; then
-  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function,path}.macos; do
+  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function,path,nodenv,rbenv}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done
 fi
