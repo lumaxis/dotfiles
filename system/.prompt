@@ -1,10 +1,16 @@
 # Setup zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ZSH_SYNTAX_HIGHLITING_FILE=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ -f $ZSH_SYNTAX_HIGHLITING_FILE ]]; then
+  source $ZSH_SYNTAX_HIGHLITING_FILE
+fi
 
 # Setup zsh-autosuggestions
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
-ZSH_AUTOSUGGEST_USE_ASYNC=true
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_FILE=/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -f $ZSH_AUTOSUGGEST_FILE ]]; then
+  ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
+  ZSH_AUTOSUGGEST_USE_ASYNC=true
+  source $ZSH_AUTOSUGGEST_FILE
+fi
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
