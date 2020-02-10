@@ -1,20 +1,18 @@
-# Bash
+# Brew
 
 if is-executable brew; then
-  BREW_PREFIX=$(brew --prefix)
-  BASH_COMPLETION="$BREW_PREFIX/share/bash-completion/bash_completion"
-  . "$BASH_COMPLETION"
-  unset BREW_PREFIX BASH_COMPLETION
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
 # Dotfiles
 
-_dotfiles_completions() {
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  COMPREPLY=( $(compgen -W 'clean dock edit help macos test update' -- $cur ) );
-}
-
-complete -o default -F _dotfiles_completions dotfiles
+# TODO: Fix for zsh
+#_dotfiles_completions() {
+#  local cur="${COMP_WORDS[COMP_CWORD]}"
+#  COMPREPLY=( $(compgen -W 'clean dock edit help macos test update' -- $cur ) );
+#}
+#
+#complete -o default -F _dotfiles_completions dotfiles
 
 # Exercism
 
