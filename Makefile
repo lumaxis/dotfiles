@@ -12,7 +12,7 @@ all: $(OS)
 macos: sudo core-macos packages link mackup
 
 linux: sudo core-linux brew-linux link
-	/home/linuxbrew/.linuxbrew/bin/brew install starship
+	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck
 
 core-macos: brew-macos zsh git npm ruby
 
