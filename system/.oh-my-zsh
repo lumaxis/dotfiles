@@ -56,6 +56,6 @@ ZSH_THEME="jreese"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask common-aliases docker git npm osx thefuck)
+plugins=(brew brew-cask docker git npm osx thefuck)
 
 source $ZSH/oh-my-zsh.sh
