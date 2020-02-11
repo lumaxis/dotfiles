@@ -19,8 +19,9 @@ core-macos: brew-macos zsh git npm ruby
 core-linux:
 	sudo apt-get update
 	sudo apt-get upgrade -y
-	sudo apt-get install build-essential -y
+	sudo apt-get install build-essential locales -y
 	sudo apt-get dist-upgrade -y -f
+	sudo locale-gen en_US.UTF-8
 
 stow-macos: brew-macos
 	is-executable stow || brew install stow
