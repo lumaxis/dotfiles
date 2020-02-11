@@ -22,8 +22,8 @@ fi
 PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Source the dotfiles (order matters)
-
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,oh-my-zsh,custom,env,alias,grep,prompt,autojump,completion}; do
+# Completions must be initalized before oh-my-zsh
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,completion,oh-my-zsh,custom,env,alias,grep,prompt,autojump}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
