@@ -53,7 +53,6 @@ brew-macos:
 
 brew-linux:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh | bash
-	echo 'eval $$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> system/.custom
 
 zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
