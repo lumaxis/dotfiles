@@ -23,7 +23,7 @@ prepend-path() {
 
 # Show 256 TERM colors
 
-colors() {
+show-colors() {
   local X=$(tput op)
   local Y=$(printf %$((COLUMNS-6))s)
   for i in {0..256}; do
