@@ -23,12 +23,12 @@ PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Source the dotfiles (order matters)
 # Completions must be initalized before oh-my-zsh
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,grep,prompt,autojump,completion,oh-my-zsh,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,path,env,alias,grep,prompt,autojump,completion,custom}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
 if is-macos; then
-  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function,path,nodenv,rbenv}.macos; do
+  for DOTFILE in "$DOTFILES_DIR"/system/.{env,alias,function,path,nodenv,rbenv,oh-my-zsh}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done
 fi
