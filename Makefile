@@ -16,7 +16,7 @@ linux: sudo core-linux brew-linux link
 
 core-macos: brew-macos zsh npm ruby
 
-core-linux: ZSH="$HOME/.config/oh-my-zsh"
+core-linux: ZSH="$(HOME)/.config/oh-my-zsh"
 core-linux:
 	sudo apt-get update
 	sudo apt-get install build-essential locales -y
@@ -58,12 +58,14 @@ zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
 	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
 
-npm: PATH="$HOME/.nodenv/shims:$PATH"
 npm: brew-$(OS)
-	curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
+	export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
 ruby: brew-$(OS)
-	brew install ruby
+	brew install rbenv
+	LATEST_RUBY := $(shell rbenv install -l | grep -v - | tail -1)
+	rbenv install -s $(LATEST_RUBY)
+	rbenv global $(LATEST_RUBY)
 
 brew-packages: brew-$(OS)
 	brew cask install homebrew/cask-versions/adoptopenjdk8 && brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
@@ -73,15 +75,15 @@ cask-apps: brew-macos
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
 node-packages: npm
-	. npm install -g $(shell cat install/npmfile)
+	npm install -g $(shell cat install/npmfile)
 
-gems: PATH="/usr/local/opt/ruby/bin:$PATH"
 gems: ruby
-	gem install $(shell cat install/Gemfile)
+	export PATH=$(HOME)/.rbenv/shims:$(PATH); gem install -N $(shell cat install/Gemfile)
 
 mackup: link
 	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
 	ln -s ~/.config/mackup/.mackup.cfg ~
+	ln -s ~/.config/mackup/.mackup ~
 
 test:
 	bats test/*.bats
