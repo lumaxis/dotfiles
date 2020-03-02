@@ -14,7 +14,7 @@ macos: sudo core-macos packages link mackup
 linux: sudo core-linux brew-linux link
 	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck
 
-core-macos: brew-macos zsh git npm ruby
+core-macos: brew-macos zsh npm ruby
 
 core-linux: ZSH="$HOME/.config/oh-my-zsh"
 core-linux:
@@ -57,9 +57,6 @@ zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
 	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
-
-git: brew-$(OS)
-	brew install git git-extras
 
 npm: PATH="$HOME/.nodenv/shims:$PATH"
 npm: brew-$(OS)
