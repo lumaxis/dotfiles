@@ -34,7 +34,7 @@ sudo:
 	sudo -v
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-packages: brew-packages cask-apps node-packages gems
+packages: brew-packages node-packages gems
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
