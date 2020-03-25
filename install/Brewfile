@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "kryptco/tap"
@@ -29,9 +30,9 @@ brew "python"
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Distributed search & analytics engine
-brew "elasticsearch"
 # Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
+# Command-line tool to interact with exercism.io
 brew "exercism"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
@@ -55,10 +56,8 @@ brew "lzip"
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
-# High performance, distributed memory object caching system
-brew "memcached"
-# Open source relational database management system
-brew "mysql@5.6", link: true
+# Run a Kubernetes cluster locally
+brew "minikube"
 # DNS benchmark utility
 brew "namebench"
 # Port scanning utility for large networks
@@ -76,7 +75,7 @@ brew "pssh"
 # Ruby version manager
 brew "rbenv"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: true
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # This tool is a command-line client for the SSL Labs APIs
@@ -93,6 +92,8 @@ brew "wget"
 brew "yarn"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
+# UNIX shell (command interpreter)
+brew "zsh"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
@@ -101,6 +102,8 @@ brew "zsh-syntax-highlighting"
 brew "github/gh/gh"
 # Krypton command-line client, daemon, and SSH integration
 brew "kryptco/tap/kr"
+# Create aliases for nodenv Node versions
+brew "nodenv/nodenv/nodenv-aliases"
 # Migrate npm packages from one Node version to another
 brew "nodenv/nodenv/nodenv-npm-migrate"
 # Pick a node version from .nvmrc
