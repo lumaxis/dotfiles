@@ -61,9 +61,11 @@ zsh: brew-$(OS)
 npm: brew-$(OS)
 	export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
-ruby: brew-$(OS)
-	brew install rbenv
-	LATEST_RUBY := $(shell rbenv install -l | grep -v - | tail -1)
+rbenv:
+	is-executable rbenv || brew install rbenv
+
+ruby: LATEST_RUBY=$(shell rbenv install -l | grep -v - | tail -1)
+ruby: brew-$(OS) rbenv
 	rbenv install -s $(LATEST_RUBY)
 	rbenv global $(LATEST_RUBY)
 
