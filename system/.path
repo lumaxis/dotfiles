@@ -17,6 +17,7 @@ prepend-path "$HOME/bin"
 prepend-path "/sbin"
 prepend-path "/usr/sbin"
 prepend-path "/usr/local/sbin"
+prepend-path "$HOME/.githubcli/bin"
 
 if ! is-macos; then
   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
