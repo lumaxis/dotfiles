@@ -115,6 +115,18 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 ###############################################################################
+# Keyboard shortcuts                                                          #
+###############################################################################
+
+# Set Spotlight shortuct to Command+Shift+Space
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{enabled = 1; value = { parameters = (32, 49, 1179648); type = ‘standard’; }; }"
+
+# Enable shortcuts to switch to spaces with Ctrl+Number
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "{enabled = 1; value = { parameters = (65535, 18, 262144); type = ‘standard’; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "{enabled = 1; value = { parameters = (65535, 19, 262144); type = ‘standard’; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 "{enabled = 1; value = { parameters = (65535, 20, 262144); type = ‘standard’; }; }"
+
+###############################################################################
 # Trackpad, mouse, Bluetooth accessories                                      #
 ###############################################################################
 
