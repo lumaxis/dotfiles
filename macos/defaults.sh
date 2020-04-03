@@ -40,7 +40,7 @@ sudo systemsetup -settimezone "Europe/Berlin" > /dev/null
 defaults write com.apple.sound.beep.feedback -bool false
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+#sudo nvram SystemAudioVolume=" "
 
 # Menu bar: disable transparency
 #defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -169,10 +169,10 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
+#defaults write com.apple.screencapture disable-shadow -bool true
 
 # Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+#defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 ###############################################################################
 # Finder                                                                      #
@@ -185,7 +185,7 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 #defaults write com.apple.finder DisableAllAnimations -bool true
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
