@@ -18,6 +18,9 @@ sudo scutil --set HostName "$COMPUTER_NAME"
 sudo scutil --set LocalHostName "$COMPUTER_NAME"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
+# Automatically switch appearance between Light and Dark
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+
 # Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en-US" "de-DE"
 defaults write NSGlobalDomain AppleLocale -string "en_DE@currency=EUR"
