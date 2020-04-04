@@ -1,8 +1,10 @@
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 
-cask "1password"
+cask "1password-beta"
 cask "adium"
-cask "adobe-acrobat-reader"
 cask "aerial"
 cask "alfred"
 cask "appcleaner"
@@ -10,17 +12,17 @@ cask "apple-events"
 cask "azure-data-studio"
 cask "bartender"
 cask "caffeine"
+cask "cardhop"
 cask "charles"
 cask "coconutbattery"
-cask "colorpicker-skalacolor"
 cask "daisydisk"
 cask "dash"
 cask "datagrip"
 cask "discord"
 cask "docker"
 cask "dotnet-sdk"
-cask "dropbox"
-cask "duet"
+cask "elgato-control-center<"
+cask "elgato-thunderbolt-dock"
 cask "encryptme"
 cask "firefox"
 cask "font-fira-code"
@@ -28,42 +30,36 @@ cask "font-fira-mono"
 cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-permanent-marker"
-cask "franz"
 cask "geekbench"
 cask "github"
 cask "gitup"
-cask "google-chrome"
-cask "gpg-suite"
 cask "handbrake"
-cask "highsierramediakeyenabler"
 cask "iina"
-cask "imageoptim"
 cask "imazing"
+cask "insomnia"
 cask "istat-menus"
 cask "istat-server"
 cask "kaleidoscope"
 cask "kextviewr"
 cask "kitematic"
-cask "lastfm"
+cask "launchcontrol"
 cask "macmediakeyforwarder"
 cask "mactracker"
+cask "macupdater"
 cask "microsoft-azure-storage-explorer"
 cask "microsoft-edge"
 cask "microsoft-edge-beta"
 cask "microsoft-edge-dev"
+cask "microsoft-office"
 cask "microsoft-remote-desktop-beta"
 cask "microsoft-teams"
 cask "moneymoney"
 cask "muzzle"
-cask "onedrive"
 cask "owncloud"
-cask "parallels-desktop"
 cask "paw"
-cask "pdf-expert"
 cask "plex"
 cask "postman"
 cask "powershell"
-cask "powershell-preview"
 cask "provisioning"
 cask "proxyman"
 cask "quicklook-json"
@@ -79,8 +75,6 @@ cask "skype"
 cask "slack"
 cask "soulver"
 cask "spotify"
-cask "steam"
-cask "surfeasy-vpn"
 cask "tableflip"
 cask "telegram"
 cask "thingsmacsandboxhelper"
@@ -88,24 +82,20 @@ cask "tower"
 cask "transmit"
 cask "tripmode"
 cask "turbo-boost-switcher"
-cask "vanilla"
 cask "virtualbox"
 cask "visual-studio-code"
+cask "visual-studio-code-insiders"
 cask "whatsapp"
 cask "wwdc"
 cask "zoomus"
 
 mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
-mas "Claquette", id: 587748131
 mas "Deliveries", id: 924726344
 mas "DevCleaner", id: 1388020431
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
-mas "FruitJuice", id: 671736912
 mas "Keynote", id: 409183694
-mas "LanScan", id: 472226235
-mas "Magnet", id: 441258766
 mas "Medis", id: 1063631769
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -116,7 +106,6 @@ mas "Pixelmator Pro", id: 1289583905
 mas "Snappy", id: 512617038
 mas "StopTheMadness", id: 1376402589
 mas "The Unarchiver", id: 425424353
-mas "Things", id: 904280696
 mas "Tweetbot", id: 1384080005
 mas "Twitter", id: 1482454543
 mas "Ulysses", id: 1225570693

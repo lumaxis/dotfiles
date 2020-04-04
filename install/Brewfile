@@ -1,9 +1,5 @@
 tap "github/gh"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "kryptco/tap"
@@ -16,10 +12,6 @@ brew "autojump"
 brew "gettext", link: true
 # Library for command-line editing
 brew "readline"
-# Command-line interface for SQLite
-brew "sqlite", link: true
-# Official Amazon AWS command-line interface
-brew "awscli"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -34,40 +26,26 @@ brew "coreutils"
 brew "elixir"
 # Command-line tool to interact with exercism.io
 brew "exercism"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
-# Tools and libraries to manipulate images in many formats
-brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
 brew "kubernetes-cli"
-# GNOME XML library
-brew "libxml2"
 # Powerful, lightweight programming language
 brew "lua"
-# LZMA-based compression program similar to gzip or bzip2
-brew "lzip"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
-# Run a Kubernetes cluster locally
-brew "minikube"
 # DNS benchmark utility
 brew "namebench"
-# Port scanning utility for large networks
-brew "nmap"
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple NodeJS versions
 brew "nodenv"
-# 7-Zip (high compression file archiver) implementation
-brew "p7zip"
 # Shell command parallelization utility
 brew "parallel"
 # Parallel versions of OpenSSH and related tools
@@ -84,8 +62,6 @@ brew "ssllabs-scan"
 brew "starship"
 # Programatically correct mistyped console commands
 brew "thefuck"
-# Terminal multiplexer
-brew "tmux"
 # Internet file retriever
 brew "wget"
 # JavaScript package manager
