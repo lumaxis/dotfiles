@@ -14,7 +14,7 @@ macos: sudo core-macos packages link mackup
 linux: sudo core-linux brew-linux link
 	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck
 
-core-macos: brew-macos zsh npm ruby
+core-macos: brew-macos zsh node ruby
 
 core-linux: ZSH="$(HOME)/.config/oh-my-zsh"
 core-linux:
@@ -58,10 +58,10 @@ zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
 	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
 
-npm: brew-$(OS)
+node: brew-$(OS)
 	export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
-rbenv:
+rbenv: brew-$(OS)
 	is-executable rbenv || brew install rbenv
 
 ruby: LATEST_RUBY=$(shell rbenv install -l | grep -v - | tail -1)
@@ -76,7 +76,7 @@ cask-apps: brew-macos
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
-node-packages: npm
+node-packages: node
 	npm install -g $(shell cat install/npmfile)
 
 gems: ruby
