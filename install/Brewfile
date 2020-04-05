@@ -1,11 +1,12 @@
 tap "github/gh"
+tap "goreleaser/tap"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "kryptco/tap"
 tap "nodenv/nodenv"
 tap "ouchxp/nodenv"
-
+tap "vitorgalvao/tiny-scripts"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -16,8 +17,6 @@ brew "readline"
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
 # Decentralized dependency manager for Cocoa
 brew "carthage"
 # GNU File, Shell, and Text utilities
@@ -30,6 +29,10 @@ brew "exercism"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
@@ -46,6 +49,8 @@ brew "namebench"
 brew "node"
 # Manage multiple NodeJS versions
 brew "nodenv"
+# OpenBSD freely-licensed SSH connectivity tools
+brew "openssh", link: false
 # Shell command parallelization utility
 brew "parallel"
 # Parallel versions of OpenSSH and related tools
@@ -76,11 +81,17 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # GitHub CLI
 brew "github/gh/gh"
+# Deliver Go binaries as fast and easily as possible
+brew "goreleaser/tap/goreleaser"
 # Krypton command-line client, daemon, and SSH integration
 brew "kryptco/tap/kr"
+# Scrape build definitions from nodejs.org and iojs.org
+brew "nodenv/nodenv/node-build-update-defs"
 # Create aliases for nodenv Node versions
 brew "nodenv/nodenv/nodenv-aliases"
 # Migrate npm packages from one Node version to another
 brew "nodenv/nodenv/nodenv-npm-migrate"
 # Pick a node version from .nvmrc
 brew "ouchxp/nodenv/nodenv-nvmrc"
+# Quickly repair outdated/broken Casks from homebrew-cask
+brew "vitorgalvao/tiny-scripts/cask-repair"

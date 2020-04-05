@@ -24,6 +24,7 @@ cask "dotnet-sdk"
 cask "elgato-control-center"
 cask "elgato-thunderbolt-dock"
 cask "encryptme"
+cask "fantastical"
 cask "firefox"
 cask "font-fira-code"
 cask "font-fira-mono"
@@ -39,6 +40,7 @@ cask "imazing"
 cask "insomnia"
 cask "istat-menus"
 cask "istat-server"
+cask "iterm2"
 cask "kaleidoscope"
 cask "kextviewr"
 cask "kitematic"
@@ -97,6 +99,7 @@ mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
 mas "Keynote", id: 409183694
 mas "Medis", id: 1063631769
+mas "Moom", id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
@@ -104,8 +107,11 @@ mas "Patterns", id: 429449079
 mas "PDF Toolkit+", id: 545164971
 mas "Pixelmator Pro", id: 1289583905
 mas "Snappy", id: 512617038
+mas "Spark", id: 1176895641
 mas "StopTheMadness", id: 1376402589
 mas "The Unarchiver", id: 425424353
+mas "Things", id: 904280696
+mas "Trello", id: 1278508951
 mas "Tweetbot", id: 1384080005
 mas "Twitter", id: 1482454543
 mas "Ulysses", id: 1225570693
