@@ -13,10 +13,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Set computer name (as done via System Preferences → Sharing)
 echo "What's the name of this computer?"
 read COMPUTER_NAME
-sudo scutil --set ComputerName "$COMPUTER_NAME"
-sudo scutil --set HostName "$COMPUTER_NAME"
-sudo scutil --set LocalHostName "$COMPUTER_NAME"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
+sudo scutil --set ComputerName "'$COMPUTER_NAME'"
+sudo scutil --set HostName "'$COMPUTER_NAME'"
+sudo scutil --set LocalHostName "'$COMPUTER_NAME'"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "'$COMPUTER_NAME'"
 
 # Automatically switch appearance between Light and Dark
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
@@ -119,12 +119,12 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 ###############################################################################
 
 # Set Spotlight shortuct to Command+Shift+Space
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{enabled = 1; value = { parameters = (32, 49, 1179648); type = ‘standard’; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "{enabled = 1; value = { parameters = (32, 49, 1179648); type = 'standard'; }; }"
 
 # Enable shortcuts to switch to spaces with Ctrl+Number
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "{enabled = 1; value = { parameters = (65535, 18, 262144); type = ‘standard’; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "{enabled = 1; value = { parameters = (65535, 19, 262144); type = ‘standard’; }; }"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 "{enabled = 1; value = { parameters = (65535, 20, 262144); type = ‘standard’; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 118 "{enabled = 1; value = { parameters = (65535, 18, 262144); type = 'standard'; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 119 "{enabled = 1; value = { parameters = (65535, 19, 262144); type = 'standard'; }; }"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 120 "{enabled = 1; value = { parameters = (65535, 20, 262144); type = 'standard'; }; }"
 
 ###############################################################################
 # Trackpad, mouse, Bluetooth accessories                                      #
