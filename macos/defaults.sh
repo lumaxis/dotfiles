@@ -142,10 +142,31 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightC
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 0
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
 
+# Trackpad: Increase tracking speed
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+
+# Trackpad: Haptic feedback
+# 0: Light
+# 1: Medium
+# 2: Firm
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 2
+defaults write com.apple.AppleMultitouchTrackpad SecondClickThreshold -int 2
+
+# Trackpad: Enable Force Click and haptic feedback
+defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad ForceSuppressed -bool false
+defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -bool true
+
+# Trackpad: Enable silent clicking
+defaults write com.apple.AppleMultitouchTrackpad ActuationStrength -int 0
+
 # Trackpad: swipe between pages with two fingers
 defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+
+# Trackpad: Enable App Exposé gesture
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -234,6 +255,13 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict General -bool true OpenWith -bool true Privileges -bool true
+
+###############################################################################
+# Mission Control                                                             #
+###############################################################################
+
+# Automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
 
 ###############################################################################
 # Dock                                                                        #
