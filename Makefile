@@ -34,7 +34,7 @@ sudo:
 	sudo -v
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-packages: brew-packages node-packages gems
+packages: brew-packages node-packages gems python-packages
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
@@ -81,6 +81,9 @@ node-packages: node
 
 gems: ruby
 	export PATH=$(HOME)/.rbenv/shims:$(PATH); gem install -N $(shell cat install/Gemfile)
+
+python-packages: brew-$(OS)
+	pip3 install $(shell cat install/pipfile)
 
 mackup: link
 	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
