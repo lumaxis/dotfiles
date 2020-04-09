@@ -12,7 +12,6 @@
 	editor = code --wait
 	autocrlf = input
 	trustctime = false
-	excludesfile = /Users/lukas/.gitignore_global
 
 [init]
 	templatedir = ~/.git_template
