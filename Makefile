@@ -70,7 +70,7 @@ ruby: brew-$(OS) rbenv
 	rbenv global $(LATEST_RUBY)
 
 brew-packages: brew-$(OS)
-	brew cask install homebrew/cask-versions/adoptopenjdk8 && brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
+	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
 cask-apps: brew-macos
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
