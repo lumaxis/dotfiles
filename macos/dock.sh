@@ -1,5 +1,7 @@
 #!/bin/sh
 
+is-executable dockutil || brew install dockutil
+
 dockutil --no-restart --remove all
 dockutil --no-restart --add "/System/Applications/App Store.app"
 dockutil --no-restart --add "/System/Applications/Launchpad.app"
