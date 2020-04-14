@@ -57,9 +57,10 @@ zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
 	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
+nodenv: brew-$(OS)
+	is-executable nodenv || curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
-node: brew-$(OS)
-	export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
+node: nodenv
 
 rbenv: brew-$(OS)
 	is-executable rbenv || brew install rbenv
