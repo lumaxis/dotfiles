@@ -83,7 +83,7 @@ gems: ruby
 	export PATH=$(HOME)/.rbenv/shims:$(PATH); gem install -N $(shell cat install/Gemfile)
 
 python-packages: brew-$(OS)
-	pip3 install $(shell cat install/pipfile)
+	pip3 install -q $(shell cat install/pipfile)
 
 mackup: link
 	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
