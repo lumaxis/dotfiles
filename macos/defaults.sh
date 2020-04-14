@@ -18,7 +18,11 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo scutil --set LocalHostName "$COMPUTER_NAME"
 sudo scutil --set ComputerName "$COMPUTER_NAME"
 
+# Show IP address, hostname, OS version when clicking the clock in the login window"
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
 # Automatically switch appearance between Light and Dark
+# This is usually set during initial setup but let's just be sure
 defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
 
 # Set language and text formats
@@ -47,6 +51,12 @@ defaults write com.apple.sound.beep.feedback -bool false
 
 # Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent YES
+
+# Menu bar: add volume item if it doesn't exist yet
+volume=$(grep "Volume.menu" ~/Library/Preferences/com.apple.systemuiserver.plist -c)
+if [ $volume = 0 ]; then
+    open '/System/Library/CoreServices/Menu Extras/Volume.menu'
+fi
 
 # Disable opening and closing window animations
 #defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
@@ -86,6 +96,9 @@ sudo systemsetup -setrestartfreeze on
 ###############################################################################
 # Keyboard & Input                                                            #
 ###############################################################################
+
+# Hide input menu in menu bar
+defaults write com.apple.TextInputMenu visible -bool false
 
 # Disable smart quotes and dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -198,6 +211,16 @@ defaults write com.apple.screencapture type -string "png"
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
+
+# Finder: set default location for new windows
+# Common options:
+# - PfHm (Home)
+# - PfDe (Desktop)
+# - PfDo (Documents)
+defaults write com.apple.finder NewWindowTarget PfHm
+
+# Finder: set sidebar width
+defaults write com.apple.finder SidebarWidth -int 180
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 #defaults write com.apple.finder QuitMenuItem -bool true
