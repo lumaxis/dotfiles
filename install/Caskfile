@@ -84,7 +84,6 @@ cask "tower"
 cask "transmit"
 cask "tripmode"
 cask "turbo-boost-switcher"
-cask "virtualbox"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "whatsapp"
@@ -93,12 +92,15 @@ cask "zoomus"
 
 mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
+mas "Dato", id: 1470584107
 mas "Deliveries", id: 924726344
 mas "DevCleaner", id: 1388020431
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
+mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
 mas "Medis", id: 1063631769
+mas "MindNode", id: 1289197285
 mas "Moom", id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541

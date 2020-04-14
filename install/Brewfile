@@ -69,6 +69,8 @@ brew "starship"
 brew "thefuck"
 # Internet file retriever
 brew "wget"
+# Homebrew, but with Docker images
+brew "whalebrew"
 # JavaScript package manager
 brew "yarn"
 # Download YouTube videos from the command-line
