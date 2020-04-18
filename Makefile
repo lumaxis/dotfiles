@@ -56,7 +56,11 @@ brew-linux:
 zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
-	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
+	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS); fi
+
+change-shell: zsh
+	chsh -s $(ZSH)
+
 nodenv: brew-$(OS)
 	is-executable nodenv || curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
@@ -73,7 +77,7 @@ ruby: brew-$(OS) rbenv
 brew-packages: brew-$(OS)
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
-cask-apps: brew-macos
+cask-apps: sudo brew-macos
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
