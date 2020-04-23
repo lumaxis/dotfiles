@@ -31,8 +31,10 @@ stow-linux: core-linux
 	is-executable stow || sudo apt-get -y install stow
 
 sudo:
+ifndef CI
 	sudo -v
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+endif
 
 packages: brew-packages node-packages gems python-packages
 
