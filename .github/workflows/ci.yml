@@ -13,13 +13,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-      run: apt-get update && apt-get install curl git make sudo zsh -y
-
-    - name: Create non-root user
-      run: useradd -m -s /bin/bash actions && echo 'actions ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers;
-
-    - name: Switch to user
-      run: su - actions && cd ~
+      run: sudo apt-get install zsh
 
     - name: Checkout repo
       uses: actions/checkout@v2
