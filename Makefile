@@ -16,13 +16,13 @@ linux: sudo core-linux brew-linux link
 
 core-macos: brew-macos zsh node ruby
 
-core-linux: ZSH="$(HOME)/.config/oh-my-zsh"
+core-linux: ZSH="$(XDG_CONFIG_HOME)/oh-my-zsh"
 core-linux:
 	sudo apt-get update
 	sudo apt-get install build-essential locales -y
 	sudo sh -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
 	sudo locale-gen
-	curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
+	[[ -d $(ZSH) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(ZSH) sh
 
 stow-macos: brew-macos
 	is-executable stow || brew install stow
