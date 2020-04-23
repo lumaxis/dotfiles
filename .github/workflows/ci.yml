@@ -25,3 +25,16 @@ jobs:
 
     - name: Ensure zsh works
       run: exec zsh
+
+  build-macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run install script
+      run: ./install.sh
+
+    - name: Ensure zsh works
+      run: exec zsh
