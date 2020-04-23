@@ -66,7 +66,7 @@ ifndef CI
 endif
 
 nodenv: brew-$(OS)
-	is-executable nodenv || curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
+	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
 node: nodenv
 
