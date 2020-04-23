@@ -1,0 +1,27 @@
+name: dotfiles CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 3 * * 6'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install dependencies
+      run: sudo apt-get install zsh
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run install script
+      run: ./install.sh
+
+    - name: Ensure zsh works
+      run: exec zsh
