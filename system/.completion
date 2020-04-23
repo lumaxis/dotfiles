@@ -14,12 +14,6 @@ fi
 #
 #complete -o default -F _dotfiles_completions dotfiles
 
-# Exercism
-
-if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-  . ~/.config/exercism/exercism_completion.zsh
-fi
-
 # The Fuck
 
 if is-executable thefuck; then
