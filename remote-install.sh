@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 SOURCE="https://github.com/lumaxis/dotfiles"
 TARBALL="$SOURCE/tarball/master"
 TARGET="$HOME/dotfiles"
