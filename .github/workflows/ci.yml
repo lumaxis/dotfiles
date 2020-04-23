@@ -8,12 +8,21 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+  build-linux:
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - run: ./install.sh
+    - name: Install dependencies
+      run: apt-get update && apt-get install curl git make sudo zsh -y
+
+    - name: Create non-root user
+      run: useradd -m -s /bin/bash actions && echo 'actions ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers;
+
+    - name: Switch to user
+      run: su - actions && cd ~
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run install script
+      run: ./install.sh
