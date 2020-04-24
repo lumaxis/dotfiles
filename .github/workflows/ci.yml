@@ -11,6 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-linux:
+    name: Install on Linux
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +28,7 @@ jobs:
       run: exec zsh
 
   build-macos:
+    name: Install on macOS
     runs-on: macos-latest
 
     steps:
