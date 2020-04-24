@@ -14,7 +14,7 @@ macos: sudo core-macos packages link mackup
 linux: sudo core-linux brew-linux link
 	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck
 
-core-macos: brew-macos zsh node ruby
+core-macos: brew-macos change-shell node ruby
 
 core-linux: ZSH="$(XDG_CONFIG_HOME)/oh-my-zsh"
 core-linux:
@@ -31,8 +31,10 @@ stow-linux: core-linux
 	is-executable stow || sudo apt-get -y install stow
 
 sudo:
+ifndef CI
 	sudo -v
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+endif
 
 packages: brew-packages node-packages gems python-packages
 
@@ -56,9 +58,15 @@ brew-linux:
 zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
 zsh: brew-$(OS)
-	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh pcre && sudo append $(ZSH) $(SHELLS) && chsh -s $(ZSH); fi
+	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh && sudo append $(ZSH) $(SHELLS); fi
+
+change-shell: zsh
+ifndef CI
+	chsh -s $(ZSH)
+endif
+
 nodenv: brew-$(OS)
-	is-executable nodenv || curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
+	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
 node: nodenv
 

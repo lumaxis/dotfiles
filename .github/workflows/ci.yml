@@ -11,11 +11,29 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-linux:
+    name: Install on Linux
     runs-on: ubuntu-latest
 
     steps:
     - name: Install dependencies
       run: sudo apt-get install zsh
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run install script
+      run: ./install.sh
+
+    - name: Ensure zsh works
+      run: exec zsh
+
+  build-macos:
+    name: Install on macOS
+    runs-on: macos-latest
+
+    steps:
+    - name: Unlink preinstalled node
+      run: brew unlink node@12
 
     - name: Checkout repo
       uses: actions/checkout@v2
