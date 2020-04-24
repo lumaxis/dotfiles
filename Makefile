@@ -79,6 +79,9 @@ ruby: brew-$(OS) rbenv
 	rbenv global $(LATEST_RUBY)
 
 brew-packages: brew-$(OS)
+ifdef CI
+	$(eval export HOMEBREW_BUNDLE_BREW_SKIP := node, yarn)
+endif
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
 cask-apps: brew-macos
