@@ -49,6 +49,17 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
+    - name: Cache Homebrew
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-homebrew
+      with:
+        path: ~/Library/Caches/Homebrew
+        key: build-${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/Brewfile') }}
+        restore-keys: |
+          build-${{ runner.os }}-${{ env.cache-name }}-
+          build-${{ runner.os }}
+
     - name: Run install script
       run: ./install.sh
 
