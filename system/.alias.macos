@@ -67,3 +67,14 @@ alias cpu="sysctl -n machdep.cpu.brand_string"
 
 alias pbtext="pbpaste | textutil -convert txt -stdin -stdout -encoding 30 | pbcopy"
 alias pbspaces="pbpaste | expand | pbcopy"
+
+# User Defaults shortcuts
+alias dr="defaults read"
+alias dw="defaults write"
+
+# cask-repair
+alias cask-repair="GITHUB_USER=lumaxis GITHUB_TOKEN=$(echo `git credential fill <<EOF
+protocol=https
+host=github.com
+
+EOF` | sed 's/.*password=\(.*\)$/\1/') cask-repair"
