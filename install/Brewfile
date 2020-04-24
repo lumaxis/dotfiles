@@ -9,10 +9,6 @@ tap "ouchxp/nodenv"
 tap "vitorgalvao/tiny-scripts"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext", link: true
-# Library for command-line editing
-brew "readline"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -25,14 +21,14 @@ brew "coreutils"
 brew "elixir"
 # Command-line tool to interact with exercism.io
 brew "exercism"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
@@ -53,8 +49,12 @@ brew "nodenv"
 brew "openssh", link: false
 # Shell command parallelization utility
 brew "parallel"
+# Parallel gzip
+brew "pigz"
 # Parallel versions of OpenSSH and related tools
 brew "pssh"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
 # Ruby version manager
 brew "rbenv"
 # Persistent key-value database, with built-in net interface
