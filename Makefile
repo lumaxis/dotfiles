@@ -75,8 +75,10 @@ rbenv: brew-$(OS)
 
 ruby: LATEST_RUBY=$(shell rbenv install -l | grep -v - | tail -1)
 ruby: brew-$(OS) rbenv
+ifndef CI
 	rbenv install -s $(LATEST_RUBY)
 	rbenv global $(LATEST_RUBY)
+endif
 
 brew-packages: brew-$(OS)
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
