@@ -1,4 +1,4 @@
-SHELL = ./timing.sh
+SHELL = /bin/zsh
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
 PATH := $(DOTFILES_DIR)/bin:$(PATH)
