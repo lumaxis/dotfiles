@@ -61,7 +61,7 @@ disabled = true
 
 [kubernetes]
 symbol = "☸️  "
-disabled = false
+disabled = true
 
 [nix_shell]
 disabled = true
