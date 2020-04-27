@@ -1,6 +1,7 @@
 [user]
 	name = Lukas Spieß
 	email = lukas.spiess@gmail.com
+	signingkey = 9C9B7EC4E32DDDE12135366518488BCD4C52C648
 
 [github]
 	user = lumaxis
@@ -26,7 +27,7 @@
 	gpgSign = true
 
 [gpg]
-	program = /usr/local/bin/krgpg
+	program = /usr/local/bin/gpg
 
 [fetch]
 	prune = true
