@@ -12,7 +12,9 @@ ps1() {
 # Get named var (usage: get "VAR_NAME")
 
 get() {
-  echo "${!1}"
+  # The bash version of this is
+  # echo "${!1}"
+  echo "${(P)1}"
 }
 
 # Show 256 TERM colors
