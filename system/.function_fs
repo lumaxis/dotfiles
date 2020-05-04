@@ -34,6 +34,14 @@ gz() {
   printf "orig: %d bytes\ngzip: %d bytes\nsave: %2.0f%% (%2.0f%%)\n" "$ORIGSIZE" "$GZIPSIZE" "$SAVED" "$RATIO"
 }
 
+fast_gzip() {
+  tar -c --use-compress-program=pigz -f "$1.tar.gz" "$1"
+}
+
+fast_ungzip() {
+  tar -x --use-compress-program="pigz -d" -f "$1"
+}
+
 # Create a data URL from a file
 
 dataurl() {
