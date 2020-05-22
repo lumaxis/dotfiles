@@ -1,4 +1,4 @@
-SHELL = /bin/zsh
+SHELL = ./report_time.sh
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
 PATH := $(DOTFILES_DIR)/bin:$(PATH)
