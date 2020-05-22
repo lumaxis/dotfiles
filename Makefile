@@ -16,13 +16,11 @@ linux: sudo core-linux brew-linux link
 
 core-macos: brew-macos change-shell node ruby
 
-core-linux: ZSH="$(XDG_CONFIG_HOME)/oh-my-zsh"
 core-linux:
 	sudo apt-get update
 	sudo apt-get install build-essential locales -y
 	sudo sh -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
 	sudo locale-gen
-	[[ -d $(ZSH) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(ZSH) sh
 
 stow-macos: brew-macos
 	is-executable stow || brew install stow
@@ -55,10 +53,14 @@ brew-macos:
 brew-linux:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh | bash
 
-zsh: ZSH=/usr/local/bin/zsh
 zsh: SHELLS=/private/etc/shells
+# oh-my-zsh home
+zsh: ZSH="$(HOME)/.config/oh-my-zsh"
+zsh: ZSH_BIN=/usr/local/bin/zsh
 zsh: brew-$(OS)
-	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh && sudo append $(ZSH) $(SHELLS); fi
+	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS) && chsh -s $(ZSH_BIN); fi
+	# Install oh-my-zsh
+	curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh
 
 change-shell: zsh
 ifndef CI
