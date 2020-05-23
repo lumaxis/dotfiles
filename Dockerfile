@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 LABEL Name=dotfiles
 
-RUN apt-get -y update && apt-get install -y make sudo time
+RUN apt-get -y update && apt-get install -y make sudo
 
 # Add user
 RUN addgroup --gid 1000 user \
