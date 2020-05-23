@@ -11,7 +11,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-linux:
-    name: Install on Linux
+    name: Install on Linux locally
     runs-on: ubuntu-latest
 
     steps:
@@ -26,6 +26,20 @@ jobs:
 
     - name: Ensure zsh works
       run: exec zsh
+
+  build-linux-docker:
+    name: Install on Linux in Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build . -t dotfiles
+
+      - name: Run Dockerfile
+        run: docker run dotfiles
 
   build-macos:
     name: Install on macOS
