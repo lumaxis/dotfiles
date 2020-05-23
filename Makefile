@@ -1,4 +1,4 @@
-SHELL = /bin/zsh
+SHELL = /bin/bash -o pipefail
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
 PATH := $(DOTFILES_DIR)/bin:$(PATH)
@@ -9,22 +9,17 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 all: $(OS)
 
-macos: sudo core-macos packages link mackup
+macos: sudo brew change-shell node ruby packages-macos link mackup
 
-linux: sudo core-linux brew-linux link
-	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck
+linux: sudo core-linux brew change-shell packages-linux link
 
-core-macos: brew-macos change-shell node ruby
-
-core-linux: ZSH="$(XDG_CONFIG_HOME)/oh-my-zsh"
 core-linux:
 	sudo apt-get update
-	sudo apt-get install build-essential locales -y
+	sudo apt-get install -y build-essential curl git locales
 	sudo sh -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
 	sudo locale-gen
-	[[ -d $(ZSH) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(ZSH) sh
 
-stow-macos: brew-macos
+stow-macos: brew
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
@@ -36,7 +31,10 @@ ifndef CI
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 endif
 
-packages: brew-packages node-packages gems python-packages
+packages-macos: ohmyzsh brew-packages node-packages gems python-packages
+
+packages-linux: ohmyzsh
+	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck tmux
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
@@ -49,41 +47,45 @@ unlink: stow-$(OS)
 	stow --delete -t $(XDG_CONFIG_HOME) config
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
-brew-macos:
-	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install | ruby
+brew:
+	is-executable brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-brew-linux:
-	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh | bash
+zsh-macos: ZSH_BIN=/usr/local/bin/zsh
+zsh-macos: SHELLS=/private/etc/shells
+zsh-macos: brew
+	if ! grep -q $(ZSH_BIN) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS); fi
 
-zsh: ZSH=/usr/local/bin/zsh
-zsh: SHELLS=/private/etc/shells
-zsh: brew-$(OS)
-	if ! grep -q $(ZSH) $(SHELLS); then brew install zsh && sudo append $(ZSH) $(SHELLS); fi
+zsh-linux:
+	is-executable zsh || sudo apt-get install -y zsh
 
-change-shell: zsh
+change-shell: zsh-$(OS)
 ifndef CI
-	chsh -s $(ZSH)
+	sudo chsh -s $$(which zsh)
 endif
 
-nodenv: brew-$(OS)
+ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
+ohmyzsh:
+	[[ -d $(OH_MY_ZSH_HOME) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
+
+nodenv: brew
 	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
 node: nodenv
 
-rbenv: brew-$(OS)
+rbenv: brew
 	is-executable rbenv || brew install rbenv
 
 ruby: LATEST_RUBY=$(shell rbenv install -l | grep -v - | tail -1)
-ruby: brew-$(OS) rbenv
+ruby: brew rbenv
 ifndef CI
 	rbenv install -s $(LATEST_RUBY)
 	rbenv global $(LATEST_RUBY)
 endif
 
-brew-packages: brew-$(OS)
+brew-packages: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
-cask-apps: brew-macos
+cask-apps: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
@@ -93,7 +95,7 @@ node-packages: node
 gems: ruby
 	export PATH=$(HOME)/.rbenv/shims:$(PATH); gem install -N $(shell cat install/Gemfile)
 
-python-packages: brew-$(OS)
+python-packages: brew
 	pip3 install -q $(shell cat install/pipfile)
 
 mackup: link
