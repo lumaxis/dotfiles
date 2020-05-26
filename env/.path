@@ -1,13 +1,13 @@
 # Define helper function
 
 prepend-path() {
-  [ -d $1 ] && PATH="$1:$PATH"
+  [ -d "$1" ] && PATH="$1:$PATH"
 }
 
 # Start with system path
 # Retrieve it from getconf, otherwise it's just current $PATH
 
-$DOTFILES_DIR/bin/is-executable getconf && PATH=$($(command -v getconf) PATH)
+"$DOTFILES_DIR"/bin/is-executable getconf && PATH=$($(command -v getconf) PATH)
 
 # Prepend new items to path (if directory exists)
 
@@ -26,13 +26,13 @@ prepend-path "/usr/local/sbin"
 prepend-path "$HOME/.githubcli/bin"
 
 if ! is-macos; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755
 
-PATH=$(echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}')
+PATH=$(echo -n "$PATH" | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}')
 
 # Wrap up
 

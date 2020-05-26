@@ -1,7 +1,7 @@
 osascript -e 'tell application "System Preferences" to quit'
 
 echo "What's the name of this computer?"
-read COMPUTER_NAME
+read -r COMPUTER_NAME
 
 # Ask for the administrator password upfront
 sudo -v
@@ -54,7 +54,7 @@ defaults write com.apple.menuextra.battery ShowPercent YES
 
 # Menu bar: add volume item if it doesn't exist yet
 volume=$(grep "Volume.menu" ~/Library/Preferences/com.apple.systemuiserver.plist -c)
-if [ $volume = 0 ]; then
+if [ "$volume" = 0 ]; then
     open '/System/Library/CoreServices/Menu Extras/Volume.menu'
 fi
 

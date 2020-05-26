@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 is-executable dockutil || brew install dockutil
 
@@ -7,7 +7,7 @@ dockutil --no-restart --add "/System/Applications/App Store.app"
 dockutil --no-restart --add "/System/Applications/Launchpad.app"
 dockutil --no-restart --add "/Applications/Microsoft Edge Beta.app"
 dockutil --no-restart --add "/Applications/Spark.app"
-dockutil --no-restart --add "~/Applications/Edge Beta App.localized/Outlook.app"
+dockutil --no-restart --add "$HOME/Applications/Edge Beta App.localized/Outlook.app"
 dockutil --no-restart --add "/Applications/Things3.app"
 dockutil --no-restart --add "/Applications/Fantastical.app"
 dockutil --no-restart --add "/Applications/Spotify.app"
