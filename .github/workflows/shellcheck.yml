@@ -17,4 +17,5 @@ jobs:
       uses: actions/checkout@v2
 
     - run: shopt -s dotglob
-    - run: shellcheck *.sh {bin,env,macos,runcom,system,test}/*
+    - run: echo "::add-matcher::.github/shellcheck-gcc-problem-matcher.json"
+    - run: shellcheck -f gcc *.sh {bin,env,macos,runcom,system,test}/*
