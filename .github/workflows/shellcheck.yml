@@ -16,6 +16,8 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
+    - name: Setup shellcheck problem matchers
+      uses: lumaxis/shellcheck-problem-matchers@v1
+
     - run: shopt -s dotglob
-    - run: echo "::add-matcher::.github/shellcheck-gcc-problem-matcher.json"
     - run: shellcheck -f gcc *.sh {bin,env,macos,runcom,system,test}/*
