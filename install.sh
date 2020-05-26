@@ -3,8 +3,8 @@
 set -e
 
 if command -v make >/dev/null; then
-  echo "No make available. Aborting."
-else
   echo "Installing dotfiles..."
   make
+else
+  echo "No make available. Aborting."
 fi
