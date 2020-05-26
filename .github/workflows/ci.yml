@@ -8,7 +8,6 @@ on:
   schedule:
     - cron: '0 3 * * 6'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-linux:
     name: Install on Linux locally
