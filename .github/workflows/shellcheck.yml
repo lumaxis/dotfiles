@@ -16,4 +16,5 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    - run: shellcheck (bin|env|macos|runcom|system|test)/*(D) *.sh
+    - run: shopt -s dotglob
+    - run: shellcheck *.sh {bin,env,macos,runcom,system,test}/*
