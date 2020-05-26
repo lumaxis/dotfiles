@@ -1,0 +1,5 @@
+# shellcheck disable=2034
+
+# Enable shellcheck support even though most files in this repo are used with zsh
+# https://github.com/koalaman/shellcheck/issues/809
+shell='bash'
