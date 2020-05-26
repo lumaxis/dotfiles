@@ -1,0 +1,19 @@
+name: Shellcheck
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    types: [ opened, synchronize, reopened, edited ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  shellcheck:
+    name: Run shellcheck
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - run: shellcheck (bin|env|macos|runcom|system|test)/*(D) *.sh
