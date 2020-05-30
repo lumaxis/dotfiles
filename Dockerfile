@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 LABEL Name=dotfiles
 
-RUN apt-get -y update && apt-get install -y curl make sudo
+RUN apt-get -y update && apt-get install -y --no-install-recommends make sudo
 
 # Add user
 RUN addgroup --gid 1000 user \
@@ -16,4 +16,4 @@ ADD . .
 
 ENV CI=1
 
-CMD ./install.sh && exec zsh
+CMD ./install.sh && if [[ -n $(zsh -c return) ]]; then exit 1; fi

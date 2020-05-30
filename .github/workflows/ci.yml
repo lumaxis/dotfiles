@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        command: [ './install.sh && exec zsh', 'make all && exec zsh' ]
+        command: [ './install.sh && if [[ -n $(zsh -c return) ]]; then exit 1; fi', 'make all && if [[ -n $(zsh -c return) ]]; then exit 1; fi' ]
 
       fail-fast: true
 
@@ -27,7 +27,7 @@ jobs:
         run: docker build . -t dotfiles
 
       - name: Run Dockerfile
-        run: docker run dotfiles ${{ matrix.command }}
+        run: docker run dotfiles "${{ matrix.command }}"
 
   build:
     name: Install locally
@@ -50,5 +50,5 @@ jobs:
       run: ${{ matrix.command }}
 
     - name: Ensure zsh works
-      run: exec zsh
+      run: if [[ -n $(zsh -c return) ]]; then exit 1; fi
       if: ${{ matrix.command == 'make all' }}
