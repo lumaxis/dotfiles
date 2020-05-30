@@ -8,25 +8,16 @@ on:
   schedule:
     - cron: '0 3 * * 6'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build-linux:
-    name: Install on Linux locally
+  build-docker:
+    name: Install in Docker
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
+    strategy:
+      matrix:
+        command: [ './install.sh && exec zsh', 'make all && exec zsh' ]
 
-    - name: Run install script
-      run: ./install.sh
-
-    - name: Ensure zsh works
-      run: exec zsh
-
-  build-linux-docker:
-    name: Install on Linux in Docker
-    runs-on: ubuntu-latest
+      fail-fast: true
 
     steps:
       - name: Checkout repo
@@ -36,21 +27,28 @@ jobs:
         run: docker build . -t dotfiles
 
       - name: Run Dockerfile
-        run: docker run dotfiles
+        run: docker run dotfiles ${{ matrix.command }}
 
-  build-macos:
-    name: Install on macOS
-    runs-on: macos-latest
+  build:
+    name: Install locally
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest ]
+        command: [ './install.sh', 'make all' ]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
     - name: Unlink preinstalled node
       run: brew unlink node@12
+      if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    - name: Run install script
-      run: ./install.sh
+    - name: Run install command
+      run: ${{ matrix.command }}
 
     - name: Ensure zsh works
       run: exec zsh
+      if: ${{ matrix.command == 'make all' }}

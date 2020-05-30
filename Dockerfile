@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 LABEL Name=dotfiles
 
-RUN apt-get -y update && apt-get install -y make sudo
+RUN apt-get -y update && apt-get install -y curl make sudo
 
 # Add user
 RUN addgroup --gid 1000 user \
@@ -16,4 +16,4 @@ ADD . .
 
 ENV CI=1
 
-CMD ./install.sh && zsh
+CMD ./install.sh && exec zsh

@@ -7,6 +7,8 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 .PHONY: test
 
+dotfiles: link
+
 all: $(OS)
 
 macos: sudo brew change-shell node ruby packages-macos link mackup

@@ -18,22 +18,32 @@ It targets macOS systems, but it should work on \*nix as well (with `apt-get`).
 
 On a sparkling fresh installation of macOS:
 
-    sudo softwareupdate -i -a
-    xcode-select --install
+```shell-script
+sudo softwareupdate -i -a
+xcode-select --install
+```
 
 The Xcode Command Line Tools includes `git` and `make` (not available on stock macOS).
 Then, install this repo with `curl` available:
 
-    bash -c "`curl -fsSL https://raw.githubusercontent.com/lumaxis/dotfiles/master/remote-install.sh`"
+```shell-script
+bash -c "`curl -fsSL https://raw.githubusercontent.com/lumaxis/dotfiles/master/remote-install.sh`"
+```
 
 This will clone (using `git`), or download (using `curl` or `wget`), this repo to `~/dotfiles`. Alternatively, clone manually into the desired location:
 
-    git clone https://github.com/lumaxis/dotfiles.git ~/dotfiles
+```shell-script
+git clone https://github.com/lumaxis/dotfiles.git ~/dotfiles
+```
 
-Use the [Makefile](./Makefile) to install everything [listed above](#package-overview), and symlink [runcom](./runcom) and [config](./config) (using [stow](https://www.gnu.org/software/stow/)):
+Use the [Makefile](./Makefile) to symlink [runcom](./runcom) and [config](./config) (using [stow](https://www.gnu.org/software/stow/)) by default or also install everything [listed above](#package-overview):
 
-    cd ~/dotfiles
-    make
+```shell-script
+cd ~/dotfiles
+make # Does the minimal setup and installs symlinks
+
+make all # Sets up dotfiles and installs default packages
+```
 
 ## Post-install
 
