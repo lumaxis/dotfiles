@@ -42,9 +42,5 @@ jobs:
     - name: Run install command
       run: ./install.sh
 
-    - run: pwd
-    - run: ls
-    - run: HOME=$GITHUB_WORKSPACE exec zsh
-
     - name: Ensure zsh works
-      run: if [[ -n $(zsh -c return) ]]; then exit 1; fi
+      run: if [[ -n $(HOME=$GITHUB_WORKSPACE zsh -c return) ]]; then exit 1; fi
