@@ -36,13 +36,11 @@ This will clone (using `git`), or download (using `curl` or `wget`), this repo t
 git clone https://github.com/lumaxis/dotfiles.git ~/dotfiles
 ```
 
-Use the [Makefile](./Makefile) to symlink [runcom](./runcom) and [config](./config) (using [stow](https://www.gnu.org/software/stow/)) by default or also install everything [listed above](#package-overview):
+- Use the [Makefile](./Makefile) to install everything [listed above](#package-overview), and symlink [runcom](./runcom) and [config](./config) (using [stow](https://www.gnu.org/software/stow/)):
 
 ```shell-script
 cd ~/dotfiles
-make # Does the minimal setup and installs symlinks
-
-make all # Sets up dotfiles and installs default packages
+make
 ```
 
 ## Post-install
