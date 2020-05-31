@@ -25,7 +25,7 @@ stow-macos: brew
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
-	is-executable stow || sudo apt-get -y install stow
+	is-executable stow || sudo apt-get -y --no-install-recommends install stow
 
 sudo:
 ifndef CI
@@ -50,7 +50,7 @@ unlink: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
 brew:
-	is-executable brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	is-executable brew || curl -V >/dev/null && /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 zsh-macos: ZSH_BIN=/usr/local/bin/zsh
 zsh-macos: SHELLS=/private/etc/shells
@@ -58,7 +58,7 @@ zsh-macos: brew
 	if ! grep -q $(ZSH_BIN) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS); fi
 
 zsh-linux:
-	is-executable zsh || sudo apt-get install -y zsh
+	is-executable zsh || sudo apt-get install -y --no-install-recommends zsh
 
 change-shell: zsh-$(OS)
 ifndef CI
