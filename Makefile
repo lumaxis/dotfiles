@@ -7,7 +7,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 .PHONY: test
 
-dotfiles: link
+#dotfiles: link
 
 all: $(OS)
 
