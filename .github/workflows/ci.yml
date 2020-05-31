@@ -13,14 +13,6 @@ jobs:
     name: Install in Docker
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        command:
-          - ./install.sh && if [[ -n $(zsh -c return) ]]; then exit 1; fi
-          - make all && if [[ -n $(zsh -c return) ]]; then exit 1; fia
-
-      fail-fast: true
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -29,7 +21,7 @@ jobs:
         run: docker build . -t dotfiles
 
       - name: Run Dockerfile
-        run: docker run dotfiles ${{ matrix.command }}
+        run: docker run dotfiles
 
   build:
     name: Install locally

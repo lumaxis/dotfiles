@@ -16,4 +16,4 @@ ADD . .
 
 ENV CI=1
 
-CMD bash -c './install.sh && ([[ -z $(zsh -c return) ]] || exit 1)'
+CMD bash -c './install.sh && if [[ -n $(zsh -c return) ]]; then exit 1; fi'
