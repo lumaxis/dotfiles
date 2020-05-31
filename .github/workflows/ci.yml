@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        command: [ './install.sh && if [[ -n $(zsh -c return) ]]; then exit 1; fi', 'make all && if [[ -n $(zsh -c return) ]]; then exit 1; fi' ]
+        command: [ './install.sh && ([[ -z $(zsh -c return) ]] || exit 1)', 'make all && ([[ -z $(zsh -c return) ]] || exit 1)' ]
 
       fail-fast: true
 
