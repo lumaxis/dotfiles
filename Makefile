@@ -15,7 +15,10 @@ linux: sudo core-linux brew change-shell packages-linux link
 
 core-linux:
 	sudo apt-get update
-	sudo apt-get install -y build-essential curl git locales
+	is-executable curl || sudo apt-get install -y curl
+	is-executable gcc || sudo apt-get install -y build-essential
+	is-executable git || sudo apt-get install -y git
+	is-executable locales || sudo apt-get install -y locales
 	sudo sh -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
 	sudo locale-gen
 
@@ -34,7 +37,7 @@ endif
 packages-macos: ohmyzsh brew-packages node-packages gems python-packages
 
 packages-linux: ohmyzsh
-	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck tmux
+	/home/linuxbrew/.linuxbrew/bin/brew install starship
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
