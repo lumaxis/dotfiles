@@ -48,7 +48,7 @@ unlink: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
 brew:
-	is-executable brew || curl -V >/dev/null && /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
 
 zsh-macos: ZSH_BIN=/usr/local/bin/zsh
 zsh-macos: SHELLS=/private/etc/shells
@@ -65,10 +65,10 @@ endif
 
 ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
-	[[ -d $(OH_MY_ZSH_HOME) ]] || curl -V >/dev/null && curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
+	[[ -d $(OH_MY_ZSH_HOME) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
 
 nodenv: brew
-	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -V >/dev/null && curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
+	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
 
 node: nodenv
 
