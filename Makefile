@@ -11,7 +11,7 @@ all: $(OS)
 
 macos: sudo brew change-shell node ruby packages-macos link mackup
 
-linux: sudo core-linux brew change-shell packages-linux link
+linux: sudo core-linux change-shell packages-linux link
 
 core-linux:
 	sudo apt-get update
@@ -37,7 +37,7 @@ endif
 packages-macos: ohmyzsh brew-packages node-packages gems python-packages
 
 packages-linux: ohmyzsh
-	/home/linuxbrew/.linuxbrew/bin/brew install starship
+	export FORCE=1; curl -fsSL https://starship.rs/install.sh | bash
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
@@ -68,7 +68,7 @@ endif
 
 ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
-	[[ -d $(OH_MY_ZSH_HOME) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
+	test -d $(OH_MY_ZSH_HOME) || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
 
 nodenv: brew
 	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
