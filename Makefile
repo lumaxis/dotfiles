@@ -11,11 +11,14 @@ all: $(OS)
 
 macos: sudo brew change-shell node ruby packages-macos link mackup
 
-linux: sudo core-linux brew change-shell packages-linux link
+linux: sudo core-linux change-shell packages-linux link
 
 core-linux:
 	sudo apt-get update
-	sudo apt-get install -y build-essential curl git locales
+	is-executable curl || sudo apt-get install -y curl
+	is-executable gcc || sudo apt-get install -y build-essential
+	is-executable git || sudo apt-get install -y git
+	is-executable locales || sudo apt-get install -y locales
 	sudo sh -c "echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen"
 	sudo locale-gen
 
@@ -23,7 +26,7 @@ stow-macos: brew
 	is-executable stow || brew install stow
 
 stow-linux: core-linux
-	is-executable stow || sudo apt-get -y install stow
+	is-executable stow || sudo apt-get -y --no-install-recommends install stow
 
 sudo:
 ifndef CI
@@ -34,7 +37,7 @@ endif
 packages-macos: ohmyzsh brew-packages node-packages gems python-packages
 
 packages-linux: ohmyzsh
-	/home/linuxbrew/.linuxbrew/bin/brew install starship thefuck tmux
+	export FORCE=1; curl -fsSL https://starship.rs/install.sh | bash
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
@@ -48,7 +51,7 @@ unlink: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
 brew:
-	is-executable brew || /bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
 
 zsh-macos: ZSH_BIN=/usr/local/bin/zsh
 zsh-macos: SHELLS=/private/etc/shells
@@ -56,7 +59,7 @@ zsh-macos: brew
 	if ! grep -q $(ZSH_BIN) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS); fi
 
 zsh-linux:
-	is-executable zsh || sudo apt-get install -y zsh
+	is-executable zsh || sudo apt-get install -y --no-install-recommends zsh
 
 change-shell: zsh-$(OS)
 ifndef CI
@@ -65,7 +68,7 @@ endif
 
 ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
-	[[ -d $(OH_MY_ZSH_HOME) ]] || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
+	test -d $(OH_MY_ZSH_HOME) || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
 
 nodenv: brew
 	is-executable nodenv || export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash
