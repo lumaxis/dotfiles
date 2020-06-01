@@ -59,8 +59,8 @@ VSCODE=code-insiders
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(dash docker git gitignore kubectl npm npx osx rbenv tmux vscode)
-is-executable fuck || plugins+=(thefuck)
-is-executable tmux || plugins+=(tmux)
+plugins=(dash docker git gitignore kubectl npm npx osx rbenv vscode)
+is-executable fuck && plugins+=(thefuck)
+is-executable tmux && plugins+=(tmux)
 
 source $ZSH/oh-my-zsh.sh
