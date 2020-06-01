@@ -26,7 +26,8 @@ prepend-path "/usr/local/sbin"
 prepend-path "$HOME/.githubcli/bin"
 
 if ! is-macos; then
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+  test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+  test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 # Remove duplicates (preserving prepended items)
