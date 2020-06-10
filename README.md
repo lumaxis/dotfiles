@@ -27,7 +27,7 @@ The Xcode Command Line Tools includes `git` and `make` (not available on stock m
 Then, install this repo with `curl` available:
 
 ```shell-script
-bash -c "`curl -fsSL https://raw.githubusercontent.com/lumaxis/dotfiles/master/remote-install.sh`"
+bash -c "`curl -fsSL https://raw.githubusercontent.com/lumaxis/dotfiles/main/remote-install.sh`"
 ```
 
 This will clone (using `git`), or download (using `curl` or `wget`), this repo to `~/dotfiles`. Alternatively, clone manually into the desired location:
