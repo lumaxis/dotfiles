@@ -52,8 +52,9 @@ alias tree1="tree -d -L 1"
 alias tree2="tree -d -L 2"
 
 # Configs
-alias zshconfig="code ~/.zshrc"
+alias gitconfig="code ~/.config/git"
 alias sshconfig="code ~/.ssh/config"
+alias zshconfig="code ~/.zshrc"
 
 # VS Code
 
