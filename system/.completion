@@ -19,5 +19,8 @@ fi
 #complete -o default -F _dotfiles_completions dotfiles
 
 # kubectl
-source <(kubectl completion zsh)
-complete -F __start_kubectl k
+#
+# Disabled for now for performance reasons
+#
+# source <(kubectl completion zsh)
+# complete -F __start_kubectl k
