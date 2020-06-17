@@ -17,9 +17,3 @@ fi
 #}
 #
 #complete -o default -F _dotfiles_completions dotfiles
-
-# The Fuck
-
-if is-executable thefuck; then
-  eval "$(thefuck --alias)"
-fi

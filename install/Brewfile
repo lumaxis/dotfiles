@@ -65,8 +65,6 @@ brew "shellcheck"
 brew "ssllabs-scan"
 # The cross-shell prompt for astronauts
 brew "starship"
-# Programatically correct mistyped console commands
-brew "thefuck"
 # Internet file retriever
 brew "wget"
 # Homebrew, but with Docker images
