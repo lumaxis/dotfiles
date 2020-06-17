@@ -3,8 +3,7 @@
 [ -z "$PS1" ] && return
 
 # Source the dotfiles (order matters)
-# Completions must be initalized before oh-my-zsh
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,alias,grep,prompt,autojump,completion,oh-my-zsh,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,alias,grep,prompt,autojump,oh-my-zsh,completion,custom}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
