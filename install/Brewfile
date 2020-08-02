@@ -1,5 +1,5 @@
 tap "github/gh"
-tap "goreleaser/tap"
+tap "github/hubbers"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -9,6 +9,8 @@ tap "ouchxp/nodenv"
 tap "vitorgalvao/tiny-scripts"
 # Shell extension to jump to frequently used directories
 brew "autojump"
+# Official Amazon AWS command-line interface
+brew "awscli"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -17,18 +19,22 @@ brew "bat"
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Tool for managing dock items
+brew "dockutil"
 # Functional metaprogramming aware language built on Erlang VM
 brew "elixir"
 # Command-line tool to interact with exercism.io
 brew "exercism"
-# GNU internationalization (i18n) and localization (l10n) library
-brew "gettext"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Deliver Go binaries as fast and easily as possible
+brew "goreleaser"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Kubernetes command-line interface
@@ -42,7 +48,9 @@ brew "mas"
 # DNS benchmark utility
 brew "namebench"
 # Platform built on V8 to build network applications
-brew "node"
+brew "node", link: false
+# Platform built on V8 to build network applications
+brew "node@12", link: true
 # Manage multiple NodeJS versions
 brew "nodenv"
 # OpenBSD freely-licensed SSH connectivity tools
@@ -57,6 +65,8 @@ brew "pssh"
 brew "python"
 # Ruby version manager
 brew "rbenv"
+# Make aliases for Ruby versions
+brew "rbenv-aliases"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: true
 # Static analysis and lint tool, for (ba)sh scripts
@@ -65,6 +75,8 @@ brew "shellcheck"
 brew "ssllabs-scan"
 # The cross-shell prompt for astronauts
 brew "starship"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Internet file retriever
 brew "wget"
 # Homebrew, but with Docker images
@@ -81,8 +93,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # GitHub CLI
 brew "github/gh/gh"
-# Deliver Go binaries as fast and easily as possible
-brew "goreleaser/tap/goreleaser"
+# A command-line tool to keep up with Hubbers
+brew "github/hubbers/hubbers"
 # Krypton command-line client, daemon, and SSH integration
 brew "kryptco/tap/kr"
 # Scrape build definitions from nodejs.org and iojs.org
@@ -91,6 +103,8 @@ brew "nodenv/nodenv/node-build-update-defs"
 brew "nodenv/nodenv/nodenv-aliases"
 # Migrate npm packages from one Node version to another
 brew "nodenv/nodenv/nodenv-npm-migrate"
+# Automatically runs `nodenv rehash`
+brew "nodenv/nodenv/nodenv-package-rehash"
 # Pick a node version from .nvmrc
 brew "ouchxp/nodenv/nodenv-nvmrc"
 # Quickly repair outdated/broken Casks from homebrew-cask
