@@ -72,6 +72,10 @@ alias nup="npm update"
 alias nri="rm -r node_modules && npm install"
 alias ncd="npm-check -su"
 
+# Terraform
+
+alias tf="terraform"
+
 # Network
 
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
