@@ -58,6 +58,10 @@
 
 [merge]
 	tool = Kaleidoscope
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
+
 [mergetool]
 	prompt = false
 [mergetool "Kaleidoscope"]
