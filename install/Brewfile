@@ -93,8 +93,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # GitHub CLI
 brew "github/gh/gh"
-# A command-line tool to keep up with Hubbers
-brew "github/hubbers/hubbers"
 # Krypton command-line client, daemon, and SSH integration
 brew "kryptco/tap/kr"
 # Scrape build definitions from nodejs.org and iojs.org
