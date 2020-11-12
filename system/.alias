@@ -73,6 +73,8 @@ alias nup="npm update"
 alias nri="rm -r node_modules && npm install"
 alias ncd="npm-check -su"
 
+alias nom="npm"
+
 # Terraform
 
 alias tf="terraform"
