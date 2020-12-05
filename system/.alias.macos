@@ -15,6 +15,10 @@ alias firefox="open -a ~/Applications/Firefox.app"
 
 alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
 
+# Intel/Rosetta 2 version of Homebrew
+
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
 # Open iOS Simulator
 
 alias ios="open /Applications/Xcode.app/Contents/Developer/Applications/iOS\ Simulator.app"
@@ -74,4 +78,3 @@ alias dw="defaults write"
 
 # cask-repair
 alias cask-repair='GITHUB_USER=lumaxis GITHUB_TOKEN=$(echo url=https://github.com | git credential fill | sed -n "s/.*password=\(.*\)$/\1/p") cask-repair'
-
