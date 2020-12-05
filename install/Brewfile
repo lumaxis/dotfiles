@@ -29,6 +29,8 @@ brew "exercism"
 brew "fd"
 # Distributed revision control system
 brew "git"
+# GitHub command-line tool
+brew "gh"
 # Git extension for versioning large files
 brew "git-lfs"
 # Open source programming language to build simple/reliable/efficient software
@@ -91,8 +93,6 @@ brew "zsh"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# GitHub CLI
-brew "github/gh/gh"
 # Krypton command-line client, daemon, and SSH integration
 brew "kryptco/tap/kr"
 # Scrape build definitions from nodejs.org and iojs.org
