@@ -1,5 +1,4 @@
 tap "github/gh"
-tap "github/hubbers"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
