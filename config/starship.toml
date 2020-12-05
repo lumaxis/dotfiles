@@ -2,39 +2,39 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
-prompt_order = [
-    "username",
-    "hostname",
-    "directory",
-    "git_branch",
-    "git_state",
-    "git_status",
-    "package",
-    "dotnet",
-    "golang",
-    "java",
-    "nodejs",
-    "python",
-    "ruby",
-    "rust",
-    "kubernetes",
-    "nix_shell",
-    "conda",
-    "memory_usage",
-    "aws",
-    "env_var",
-    "cmd_duration",
-    "line_break",
-    "jobs",
-    "battery",
-    "time",
-    "character",
-]
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$package\
+$golang\
+$java\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$kubernetes\
+$terraform\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$env_var\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$character"""
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                   # The name of the module we are configuring is "character"
-symbol = "➜"                  # The "symbol" segment is being set to "➜"
-use_symbol_for_status = true  # Indicate error status by changing the symbol.
+success_symbol = "[❯](bold green)"
+error_symbol = "[✖](bold red)"
+vicmd_symbol = "[❮](bold green)"
+#symbol = "➜"                  # The "symbol" segment is being set to "➜"
 
 [[battery.display]]
 threshold = 20
@@ -43,6 +43,9 @@ threshold = 20
 disabled = true
 
 [conda]
+disabled = true
+
+[dotnet]
 disabled = true
 
 [git_branch]
@@ -60,7 +63,7 @@ stashed = ""
 disabled = true
 
 [kubernetes]
-symbol = "☸️  "
+symbol = "☸️ "
 disabled = true
 
 [nix_shell]
@@ -70,5 +73,11 @@ disabled = true
 [package]
 disabled = true
 
+[ruby]
+disabled = false
+
 [rust]
 disabled = false
+
+[terraform]
+disabled = true
