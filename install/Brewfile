@@ -4,12 +4,17 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "kryptco/tap"
 tap "nodenv/nodenv"
-tap "ouchxp/nodenv"
 tap "vitorgalvao/tiny-scripts"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
 # Microsoft Azure CLI 2.0
 brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -18,6 +23,8 @@ brew "bat"
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Tool for managing dock items
 brew "dockutil"
 # Functional metaprogramming aware language built on Erlang VM
@@ -46,35 +53,33 @@ brew "lua"
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
+# Open source relational database management system
+brew "mysql", restart_service: true
 # DNS benchmark utility
 brew "namebench"
 # Platform built on V8 to build network applications
-brew "node", link: false
-# Platform built on V8 to build network applications
-brew "node@12", link: true
+brew "node"
 # Manage multiple NodeJS versions
 brew "nodenv"
-# OpenBSD freely-licensed SSH connectivity tools
-brew "openssh", link: false
 # Shell command parallelization utility
 brew "parallel"
 # Parallel gzip
 brew "pigz"
 # Parallel versions of OpenSSH and related tools
 brew "pssh"
-# Interpreted, interactive, object-oriented programming language
-brew "python"
 # Ruby version manager
 brew "rbenv"
 # Make aliases for Ruby versions
 brew "rbenv-aliases"
-# Persistent key-value database, with built-in net interface
-brew "redis", restart_service: true
+# GNU Make with improved error handling, tracing, and a debugger
+brew "remake"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # This tool is a command-line client for the SSL Labs APIs
 brew "ssllabs-scan"
-# The cross-shell prompt for astronauts
+# Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
@@ -100,9 +105,9 @@ brew "nodenv/nodenv/node-build-update-defs"
 brew "nodenv/nodenv/nodenv-aliases"
 # Migrate npm packages from one Node version to another
 brew "nodenv/nodenv/nodenv-npm-migrate"
+# Pick a node version from .nvmrc
+brew "nodenv/nodenv/nodenv-nvmrc", args: ["HEAD"]
 # Automatically runs `nodenv rehash`
 brew "nodenv/nodenv/nodenv-package-rehash"
-# Pick a node version from .nvmrc
-brew "ouchxp/nodenv/nodenv-nvmrc"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
