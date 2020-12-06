@@ -9,6 +9,7 @@ cask "aerial"
 cask "alfred"
 cask "appcleaner"
 cask "apple-events"
+cask "autodesk-fusion360"
 cask "azure-data-studio"
 cask "bartender"
 cask "boop"
@@ -29,6 +30,7 @@ cask "elgato-thunderbolt-dock"
 cask "encryptme"
 cask "fantastical"
 cask "firefox"
+cask "font-barlow-condensed"
 cask "font-fira-code"
 cask "font-fira-mono"
 cask "font-jetbrains-mono"
@@ -39,7 +41,9 @@ cask "github"
 cask "gitup"
 cask "gpg-suite"
 cask "handbrake"
+cask "hookshot"
 cask "iina"
+cask "imageoptim"
 cask "imazing"
 cask "insomnia"
 cask "istat-menus"
@@ -50,6 +54,7 @@ cask "kextviewr"
 cask "keybase"
 cask "kitematic"
 cask "launchcontrol"
+cask "liteicon"
 cask "logitech-options"
 cask "macmediakeyforwarder"
 cask "mactracker"
@@ -64,6 +69,7 @@ cask "moneymoney"
 cask "muzzle"
 cask "owncloud"
 cask "paw"
+cask "pdf-expert"
 cask "plex"
 cask "pocket-casts"
 cask "postman"
@@ -86,6 +92,8 @@ cask "slack"
 cask "soulver"
 cask "spotify"
 cask "ssh-config-editor"
+cask "steam"
+cask "sublime-merge"
 cask "tableflip"
 cask "telegram"
 cask "thingsmacsandboxhelper"
@@ -93,21 +101,24 @@ cask "timing"
 cask "tower"
 cask "transmit"
 cask "tripmode"
-cask "turbo-boost-switcher"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "whatsapp"
 cask "wwdc"
+cask "yubico-yubikey-manager"
 cask "zoomus"
 
 mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
-mas "Deliveries", id: 924726344
+mas "Bear", id: 1091189122
+mas "Deliveries", id: 290986013
 mas "DevCleaner", id: 1388020431
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
 mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
+mas "LG Screen Manager", id: 1142051783
+mas "MacFamilyTree 9", id: 1458866808
 mas "Medis", id: 1063631769
 mas "Messenger", id: 1480068668
 mas "Moom", id: 419330170
@@ -125,7 +136,6 @@ mas "Things", id: 904280696
 mas "Trello", id: 1278508951
 mas "Tweetbot", id: 1384080005
 mas "Twitter", id: 1482454543
-mas "Ulysses", id: 1225570693
 mas "Webcam Settings", id: 533696630
 mas "WiFi Signal", id: 525912054
 mas "Xcode", id: 497799835
