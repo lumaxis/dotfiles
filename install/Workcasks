@@ -1,0 +1,5 @@
+cask "backblaze"
+cask "google-cloud-sdk"
+cask "turbo-boost-switcher"
+cask "viscosity"
+cask "vmware-fusion"
