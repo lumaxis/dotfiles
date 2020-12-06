@@ -4,16 +4,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 
 cask "1password-beta"
-cask "adium"
 cask "aerial"
 cask "alfred"
 cask "appcleaner"
-cask "apple-events"
 cask "autodesk-fusion360"
-cask "azure-data-studio"
 cask "bartender"
 cask "boop"
-cask "caffeine"
 cask "cardhop"
 cask "charles"
 cask "cleanshot"
@@ -24,7 +20,6 @@ cask "datagrip"
 cask "deckset"
 cask "discord"
 cask "docker"
-cask "dotnet-sdk"
 cask "elgato-control-center"
 cask "elgato-thunderbolt-dock"
 cask "encryptme"
@@ -36,35 +31,26 @@ cask "font-fira-mono"
 cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-permanent-marker"
-cask "geekbench"
 cask "github"
 cask "gitup"
 cask "gpg-suite"
-cask "handbrake"
 cask "hookshot"
 cask "iina"
 cask "imageoptim"
-cask "imazing"
-cask "insomnia"
 cask "istat-menus"
 cask "istat-server"
 cask "iterm2"
 cask "kaleidoscope"
 cask "kextviewr"
 cask "keybase"
-cask "kitematic"
 cask "launchcontrol"
 cask "liteicon"
 cask "logitech-options"
 cask "macmediakeyforwarder"
 cask "mactracker"
 cask "macupdater"
-cask "microsoft-azure-storage-explorer"
-cask "microsoft-edge"
 cask "microsoft-edge-beta"
-cask "microsoft-edge-dev"
 cask "microsoft-office"
-cask "microsoft-teams"
 cask "moneymoney"
 cask "muzzle"
 cask "owncloud"
@@ -73,9 +59,6 @@ cask "pdf-expert"
 cask "plex"
 cask "pocket-casts"
 cask "postman"
-cask "powershell"
-cask "pritunl"
-cask "provisioning"
 cask "proxyman"
 cask "quicklook-json"
 cask "radio-silence"
@@ -104,7 +87,6 @@ cask "tripmode"
 cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "whatsapp"
-cask "wwdc"
 cask "yubico-yubikey-manager"
 cask "zoomus"
 
@@ -112,7 +94,6 @@ mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
 mas "Deliveries", id: 290986013
-mas "DevCleaner", id: 1388020431
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
 mas "Gifski", id: 1351639930
@@ -121,16 +102,13 @@ mas "LG Screen Manager", id: 1142051783
 mas "MacFamilyTree 9", id: 1458866808
 mas "Medis", id: 1063631769
 mas "Messenger", id: 1480068668
-mas "Moom", id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
 mas "Patterns", id: 429449079
 mas "PDF Toolkit+", id: 545164971
 mas "Pixelmator Pro", id: 1289583905
-mas "Snappy", id: 512617038
 mas "Spark", id: 1176895641
-mas "StopTheMadness", id: 1376402589
 mas "The Unarchiver", id: 425424353
 mas "Things", id: 904280696
 mas "Trello", id: 1278508951

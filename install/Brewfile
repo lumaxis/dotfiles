@@ -1,4 +1,3 @@
-tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "homebrew/services"
@@ -23,14 +22,8 @@ brew "bat"
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # Tool for managing dock items
 brew "dockutil"
-# Functional metaprogramming aware language built on Erlang VM
-brew "elixir"
-# Command-line tool to interact with exercism.io
-brew "exercism"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Distributed revision control system
@@ -39,24 +32,12 @@ brew "git"
 brew "gh"
 # Git extension for versioning large files
 brew "git-lfs"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
-# Deliver Go binaries as fast and easily as possible
-brew "goreleaser"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Kubernetes command-line interface
-brew "kubernetes-cli"
-# Powerful, lightweight programming language
-brew "lua"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
-# Open source relational database management system
-brew "mysql", restart_service: true
-# DNS benchmark utility
-brew "namebench"
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple NodeJS versions
@@ -77,8 +58,6 @@ brew "remake"
 brew "ripgrep"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
-# This tool is a command-line client for the SSL Labs APIs
-brew "ssllabs-scan"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)

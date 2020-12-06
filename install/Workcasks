@@ -1,5 +1,7 @@
 cask "backblaze"
 cask "google-cloud-sdk"
+cask "microsoft-teams"
+cask "pritunl"
 cask "turbo-boost-switcher"
 cask "viscosity"
 cask "vmware-fusion"
