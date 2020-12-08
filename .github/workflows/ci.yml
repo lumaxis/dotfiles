@@ -32,7 +32,7 @@ jobs:
 
     steps:
     - name: Unlink preinstalled node
-      run: brew unlink node@12
+      run: brew unlink node@14
       if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Checkout repo
