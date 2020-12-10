@@ -5,3 +5,5 @@ cask "pritunl"
 cask "turbo-boost-switcher"
 cask "viscosity"
 cask "vmware-fusion"
+
+mas "Medis", id: 1063631769
