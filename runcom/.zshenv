@@ -15,11 +15,11 @@ fi
 
 # Source the env files
 
-for DOTFILE in "$DOTFILES_DIR"/env/.{env,path}; do
+for DOTFILE in "$DOTFILES_DIR"/env/.{env}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
-if is-macos; then
+if $DOTFILES_DIR/bin/is-macos; then
   for DOTFILE in "$DOTFILES_DIR"/env/.{env,path}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done

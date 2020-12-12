@@ -3,7 +3,7 @@
 [ -z "$PS1" ] && return
 
 # Source the dotfiles (order matters)
-for DOTFILE in "$DOTFILES_DIR"/system/.{function,function_*,alias,grep,prompt,autojump,oh-my-zsh,completion,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{path,function,function_*,alias,grep,prompt,autojump,oh-my-zsh,completion,custom}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
