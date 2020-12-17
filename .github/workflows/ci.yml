@@ -31,8 +31,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - name: Force install awscli
-      run: brew install awscli --force
+    - name: Remove existing awscli
+      run: |
+        rm /usr/local/bin/aws
+        rm /usr/local/bin/aws_completer
       if: ${{ startsWith(matrix.os, 'macos') }}
     - name: Unlink preinstalled node
       run: brew unlink node@14
