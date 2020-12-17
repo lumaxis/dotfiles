@@ -7,7 +7,6 @@ cask "1password-beta"
 cask "aerial"
 cask "alfred"
 cask "appcleaner"
-cask "autodesk-fusion360"
 cask "bartender"
 cask "boop"
 cask "cardhop"
@@ -44,7 +43,6 @@ cask "kaleidoscope"
 cask "kextviewr"
 cask "keybase"
 cask "launchcontrol"
-cask "liteicon"
 cask "logitech-options"
 cask "macmediakeyforwarder"
 cask "mactracker"
@@ -89,17 +87,16 @@ cask "visual-studio-code"
 cask "visual-studio-code-insiders"
 cask "whatsapp"
 cask "yubico-yubikey-manager"
-cask "zoomus"
+cask "zoom"
 
 mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
-mas "Deliveries", id: 290986013
+mas "Deliveries", id: 924726344
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
 mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
-mas "LG Screen Manager", id: 1142051783
 mas "MacFamilyTree 9", id: 1458866808
 mas "Messenger", id: 1480068668
 mas "Numbers", id: 409203825
