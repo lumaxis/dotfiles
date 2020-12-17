@@ -13,7 +13,7 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [core]
-	editor = code-exploration --wait
+	editor = code-insiders --wait
 	autocrlf = input
 	trustctime = false
 

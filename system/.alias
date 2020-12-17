@@ -59,7 +59,7 @@ alias zshconfig='$EDITOR ~/.zshrc'
 
 # VS Code
 
-alias code="code-exploration"
+alias code="code-insiders"
 
 # kubectl
 
