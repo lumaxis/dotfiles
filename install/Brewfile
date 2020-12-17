@@ -10,16 +10,10 @@ brew "openssl@1.1"
 brew "python@3.9"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# Official Amazon AWS command-line interface
-brew "awscli"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.8"
-# Microsoft Azure CLI 2.0
-brew "azure-cli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Decentralized dependency manager for Cocoa
-brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Tool for managing dock items
@@ -38,6 +32,8 @@ brew "jq"
 brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
+# Open source relational database management system
+brew "mysql", restart_service: true
 # Platform built on V8 to build network applications
 brew "node"
 # Manage multiple NodeJS versions
