@@ -11,7 +11,7 @@ all: $(OS)
 
 macos: sudo brew change-shell node ruby packages-macos link mackup
 
-linux: sudo core-linux change-shell packages-linux link
+linux: sudo core-linux brew change-shell packages-linux link
 
 core-linux:
 	sudo apt-get update
