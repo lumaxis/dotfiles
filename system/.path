@@ -20,6 +20,7 @@ prepend-path "$HOME/bin"
 prepend-path "/sbin"
 prepend-path "/usr/sbin"
 prepend-path "/usr/local/sbin"
+prepend-path "/opt/homebrew/sbin"
 prepend-path "$HOME/.githubcli/bin"
 
 if ! is-macos; then
