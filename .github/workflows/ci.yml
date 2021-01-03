@@ -33,6 +33,7 @@ jobs:
     steps:
     - name: Remove existing awscli
       run: |
+        rm /usr/local/bin/2to3
         rm /usr/local/bin/aws
         rm /usr/local/bin/aws_completer
       if: ${{ startsWith(matrix.os, 'macos') }}
