@@ -26,6 +26,11 @@ if ! is-macos; then
   test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+# Setup google-cloud-sdk path
+if $DOTFILES_DIR/bin/is-executable "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/gcloud"; then
+  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+fi
+
 # Remove duplicates (preserving prepended items)
 # Source: http://unix.stackexchange.com/a/40755
 
