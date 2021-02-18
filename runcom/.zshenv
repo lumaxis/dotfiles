@@ -14,8 +14,7 @@ else
 fi
 
 # Source the env files
-
-for DOTFILE in "$DOTFILES_DIR"/env/.{env}; do
+for DOTFILE in "$DOTFILES_DIR"/env/.env; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
