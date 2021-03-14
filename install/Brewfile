@@ -1,4 +1,8 @@
 tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-drivers"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "kryptco/tap"
@@ -86,3 +90,126 @@ brew "nodenv/nodenv/nodenv-nvmrc", args: ["HEAD"]
 brew "nodenv/nodenv/nodenv-package-rehash"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
+
+cask "1password-beta"
+cask "aerial"
+cask "alfred"
+cask "appcleaner"
+cask "bartender"
+cask "boop"
+cask "cardhop"
+cask "charles"
+cask "cleanshot"
+cask "coconutbattery"
+cask "daisydisk"
+cask "dash"
+cask "datagrip"
+cask "deckset"
+cask "discord"
+cask "docker"
+cask "elgato-control-center"
+cask "elgato-thunderbolt-dock"
+cask "encryptme"
+cask "fantastical"
+cask "firefox"
+cask "font-barlow-condensed"
+cask "font-fira-code"
+cask "font-fira-mono"
+cask "font-jetbrains-mono"
+cask "font-open-sans"
+cask "font-permanent-marker"
+cask "github"
+cask "gitup"
+cask "gpg-suite"
+cask "hookshot"
+cask "iina"
+cask "imageoptim"
+cask "istat-menus"
+cask "istat-server"
+cask "iterm2"
+cask "kaleidoscope"
+cask "kextviewr"
+cask "keybase"
+cask "launchcontrol"
+cask "logitech-options"
+cask "macmediakeyforwarder"
+cask "mactracker"
+cask "macupdater"
+cask "microsoft-edge-beta"
+cask "microsoft-office"
+cask "moneymoney"
+cask "moom"
+cask "muzzle"
+cask "owncloud"
+cask "paw"
+cask "pdf-expert"
+cask "plex"
+cask "pocket-casts"
+cask "postman"
+cask "proxyman"
+cask "quicklook-json"
+cask "radio-silence"
+cask "rescuetime"
+cask "rocket"
+cask "rocket-chat"
+cask "rubymine"
+cask "screens"
+cask "screens-connect"
+cask "signal"
+cask "sketch"
+cask "skype"
+cask "slack"
+cask "soulver"
+cask "spotify"
+cask "ssh-config-editor"
+cask "steam"
+cask "sublime-merge"
+cask "tableflip"
+cask "telegram"
+cask "thingsmacsandboxhelper"
+cask "timing"
+cask "tower"
+cask "transmit"
+cask "tripmode"
+cask "visual-studio-code"
+cask "visual-studio-code-insiders"
+cask "whatsapp"
+cask "yubico-yubikey-manager"
+cask "zoom"
+
+mas "1Blocker", id: 1107421413
+mas "Apple Configurator 2", id: 1037126344
+mas "Bear", id: 1091189122
+mas "Deliveries", id: 924726344
+mas "Diagrams", id: 1276248849
+mas "Ethernet Status", id: 1186187538
+mas "Gifski", id: 1351639930
+mas "Keynote", id: 409183694
+mas "MacFamilyTree 9", id: 1458866808
+mas "Messenger", id: 1480068668
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Parcel", id: 639968404
+mas "Patterns", id: 429449079
+mas "PDF Toolkit+", id: 545164971
+mas "Pixelmator Pro", id: 1289583905
+mas "Spark", id: 1176895641
+mas "The Unarchiver", id: 425424353
+mas "Things", id: 904280696
+mas "Trello", id: 1278508951
+mas "Tweetbot", id: 1384080005
+mas "Twitter", id: 1482454543
+mas "Webcam Settings", id: 533696630
+mas "WiFi Signal", id: 525912054
+mas "Xcode", id: 497799835
+mas "xScope", id: 889428659
+
+# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
+#cask "qlcolorcode"
+#cask "qlimagesize"
+#cask "qlmarkdown"
+#cask "qlstephen"
+#cask "qlvideo"
+#cask "quicklook-json"
+#cask "suspicious-package"
+#cask "webpquicklook"

@@ -88,8 +88,7 @@ endif
 brew-packages: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
 
-cask-apps: brew
-	brew bundle --file=$(DOTFILES_DIR)/install/Caskfile
+apps: brew
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
 node-packages: node

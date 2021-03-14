@@ -7,7 +7,7 @@ It targets macOS systems, but it should work on \*nix as well (with `apt-get`).
 ## Package overview
 
 - [Homebrew](https://brew.sh) (packages: [Brewfile](./install/Brewfile))
-- [homebrew-cask](https://caskroom.github.io) (packages: [Caskfile](./install/Caskfile))
+- [homebrew-cask](https://caskroom.github.io) (packages: [Brewfile](./install/Brewfile))
 - [Node.js + npm LTS](https://nodejs.org/en/download/) (packages: [npmfile](./install/npmfile))
 - Latest Ruby (packages: [Gemfile](./install/Gemfile))
 - Latest Git, Bash 4, Python 3, GNU coreutils, curl
