@@ -8,6 +8,7 @@ tap "homebrew/services"
 tap "kryptco/tap"
 tap "nodenv/nodenv"
 tap "vitorgalvao/tiny-scripts"
+tap "warrensbox/tap"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Interpreted, interactive, object-oriented programming language
@@ -19,17 +20,31 @@ brew "python@3.8"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # GNU File, Shell, and Text utilities
-brew "coreutils"
+brew "coreutils", link: false
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Tool for managing dock items
 brew "dockutil"
+# Functional metaprogramming aware language built on Erlang VM
+brew "elixir"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Distributed revision control system
-brew "git"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Fast and simple Node.js version manager
+brew "fnm"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Keep your Mac's application settings in sync
@@ -37,15 +52,15 @@ brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
 # Open source relational database management system
-brew "mysql", restart_service: true
+brew "mysql@5.7", restart_service: true
 # Platform built on V8 to build network applications
-brew "node"
-# Manage multiple NodeJS versions
-brew "nodenv"
+brew "node", link: false
+# Platform built on V8 to build network applications
+brew "node@14"
 # Shell command parallelization utility
 brew "parallel"
 # Parallel gzip
-brew "pigz"
+brew "pigz", link: false
 # Parallel versions of OpenSSH and related tools
 brew "pssh"
 # Ruby version manager
@@ -62,6 +77,8 @@ brew "shellcheck"
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Executes a program periodically, showing output fullscreen
+brew "watch"
 # Internet file retriever
 brew "wget"
 # Homebrew, but with Docker images
@@ -76,124 +93,205 @@ brew "zsh"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Krypton command-line client, daemon, and SSH integration
-brew "kryptco/tap/kr"
-# Scrape build definitions from nodejs.org and iojs.org
-brew "nodenv/nodenv/node-build-update-defs"
-# Create aliases for nodenv Node versions
-brew "nodenv/nodenv/nodenv-aliases"
-# Migrate npm packages from one Node version to another
-brew "nodenv/nodenv/nodenv-npm-migrate"
-# Pick a node version from .nvmrc
-brew "nodenv/nodenv/nodenv-nvmrc", args: ["HEAD"]
-# Automatically runs `nodenv rehash`
-brew "nodenv/nodenv/nodenv-package-rehash"
 # Quickly repair outdated/broken Casks from homebrew-cask
 brew "vitorgalvao/tiny-scripts/cask-repair"
-
+# The tfswitch command lets you switch between terraform versions.
+brew "warrensbox/tap/tfswitch"
+# Password manager that keeps all passwords secure behind one password
 cask "1password-beta"
 cask "aerial"
+# Application launcher and productivity software
 cask "alfred"
+# Application uninstaller
 cask "appcleaner"
+# Unofficial Apple Events app
+cask "apple-events"
+# Menu bar icon organizer
 cask "bartender"
+# Scriptable scratchpad for developers
 cask "boop"
+# Contacts manager
 cask "cardhop"
+# Web debugging Proxy application
 cask "charles"
+# Screen capturing tool
 cask "cleanshot"
+# Tool to show live information about the batteries in various devices
 cask "coconutbattery"
+# Disk space visualizer
 cask "daisydisk"
-cask "dash"
+# Databases & SQL IDE
 cask "datagrip"
 cask "deckset"
+# Voice and text chat software
 cask "discord"
+# App to build and share containerized applications and microservices
 cask "docker"
 cask "elgato-control-center"
+cask "elgato-stream-deck"
+# Menu bar utility for Elgato Thunderbolt docks
 cask "elgato-thunderbolt-dock"
+# VPN and encryption software
 cask "encryptme"
 cask "fantastical"
+# Web browser
 cask "firefox"
 cask "font-barlow-condensed"
-cask "font-fira-code"
+cask "font-fira-code-nerd-font"
 cask "font-fira-mono"
+# Typeface made for developers
 cask "font-jetbrains-mono"
 cask "font-open-sans"
 cask "font-permanent-marker"
+# Desktop client for GitHub repositories
 cask "github"
+# Git interface focused on visual interaction
 cask "gitup"
+# Set of tools to manage resources and applications hosted on Google Cloud
+cask "google-cloud-sdk"
+# Tools to protect your emails and files
 cask "gpg-suite"
+# Open-source video transcoder
+cask "handbrake"
 cask "hookshot"
+# Free and open-source media player
 cask "iina"
+# Tool to optimize images to a smaller size
 cask "imageoptim"
+# iPhone management application
+cask "imazing"
+# HTTP and GraphQL Client
+cask "insomnia"
+# System monitoring app
 cask "istat-menus"
+# Transmits computer or server’s vital statistics
 cask "istat-server"
+# Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Spot and merge differences in text and image files or folders
 cask "kaleidoscope"
+# Display all currently loaded kexts
 cask "kextviewr"
+# End-to-end encryption software
 cask "keybase"
+# Create, manage and debug system- and user services
 cask "launchcontrol"
+cask "logitech-camera-settings"
+# Software for Logitech devices
 cask "logitech-options"
 cask "macmediakeyforwarder"
+# Detailed information on every Apple product ever made
 cask "mactracker"
+# Track and update to the latest versions of installed software
 cask "macupdater"
+cask "microsoft-azure-storage-explorer"
+# Multi-platform web browser
 cask "microsoft-edge-beta"
 cask "microsoft-office"
+cask "microsoft-teams"
+# German banking and financial management software
 cask "moneymoney"
-cask "moom"
+# Silence embarrassing notifications while screensharing
 cask "muzzle"
+# Desktop syncing client for ownCloud
 cask "owncloud"
+# HTTP client that helps testing and describing APIs
 cask "paw"
+# PDF reader, editor and annotator
 cask "pdf-expert"
+# Home media server
 cask "plex"
+# Podcast platform
 cask "pocket-casts"
+# Collaboration platform for API development
 cask "postman"
+cask "provisioning"
+# Modern and intuitive HTTP Debugging Proxy app
 cask "proxyman"
 cask "quicklook-json"
+# Network monitor and firewall
 cask "radio-silence"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Time optimising application
 cask "rescuetime"
+# Emoji picker optimized for blind people
 cask "rocket"
+# Official desktop client for Rocket.Chat
 cask "rocket-chat"
+# Ruby on Rails IDE
 cask "rubymine"
+# Remote access software focusing on usability
 cask "screens"
+# Remote desktop software
 cask "screens-connect"
+# Instant messaging application focusing on security
 cask "signal"
+# Digital design and prototyping platform
 cask "sketch"
+# Video chat, voice call and instant messaging application
 cask "skype"
+# Team communication and collaboration software
 cask "slack"
+# Notepad with a built-in calculator
 cask "soulver"
+# Music streaming service
 cask "spotify"
+# Tool for managing the OpenSSH ssh client configuration file
 cask "ssh-config-editor"
+# Video game digital distribution service
 cask "steam"
+# Git client
 cask "sublime-merge"
+# App to edit markdown files in place
 cask "tableflip"
+# Messaging app with a focus on speed and security
 cask "telegram"
+# Helper application for Things
 cask "thingsmacsandboxhelper"
-cask "timing"
+# Git client focusing on power and productivity
 cask "tower"
+# File transfer application
 cask "transmit"
-cask "tripmode"
+# VPN client for secure internet access and private browsing
+cask "viscosity"
+# Open-source code editor
 cask "visual-studio-code"
+# Integrated development environment
 cask "visual-studio-code-insiders"
+# App to run other operating systems without rebooting
+cask "vmware-fusion"
+# JavaScript IDE
+cask "webstorm"
+# Desktop client for WhatsApp
 cask "whatsapp"
+# Allows access to WWDC livestreams, videos and sessions
+cask "wwdc"
 cask "yubico-yubikey-manager"
+# Video communication and virtual meeting platform
 cask "zoom"
-
 mas "1Blocker", id: 1107421413
 mas "Apple Configurator 2", id: 1037126344
 mas "Bear", id: 1091189122
-mas "Deliveries", id: 924726344
+mas "com.pixelmatorteam.pixelmator.x", id: 1289583905
+mas "Deliveries", id: 290986013
+mas "DevCleaner", id: 1388020431
 mas "Diagrams", id: 1276248849
 mas "Ethernet Status", id: 1186187538
 mas "Gifski", id: 1351639930
 mas "Keynote", id: 409183694
+mas "LG Screen Manager", id: 1142051783
 mas "MacFamilyTree 9", id: 1458866808
+mas "Medis", id: 1063631769
 mas "Messenger", id: 1480068668
+mas "Moom", id: 419330170
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Parcel", id: 639968404
 mas "Patterns", id: 429449079
 mas "PDF Toolkit+", id: 545164971
-mas "Pixelmator Pro", id: 1289583905
 mas "Spark", id: 1176895641
+mas "stts", id: 1187772509
 mas "The Unarchiver", id: 425424353
 mas "Things", id: 904280696
 mas "Trello", id: 1278508951
@@ -203,13 +301,3 @@ mas "Webcam Settings", id: 533696630
 mas "WiFi Signal", id: 525912054
 mas "Xcode", id: 497799835
 mas "xScope", id: 889428659
-
-# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
-#cask "qlcolorcode"
-#cask "qlimagesize"
-#cask "qlmarkdown"
-#cask "qlstephen"
-#cask "qlvideo"
-#cask "quicklook-json"
-#cask "suspicious-package"
-#cask "webpquicklook"
