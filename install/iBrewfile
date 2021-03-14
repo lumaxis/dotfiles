@@ -1,0 +1,5 @@
+# Mac App Store command-line interface
+brew "mas"
+# Static analysis and lint tool, for (ba)sh scripts
+# Depends on ghc
+brew "shellcheck"
