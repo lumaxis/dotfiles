@@ -1,0 +1,3 @@
+# fnm
+
+eval "$(fnm env)"

@@ -70,10 +70,10 @@ ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
 	test -d $(OH_MY_ZSH_HOME) || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
 
-nodenv: brew
-	is-executable nodenv || (export PATH=$(HOME)/.nodenv/shims:$(PATH); curl -fsSL https://raw.githubusercontent.com/nodenv/nodenv-installer/master/bin/nodenv-installer | bash)
+fnm: brew
+	is-executable fnm || (curl -fsSL https://fnm.vercel.app/install | bash)
 
-node: nodenv
+node: fnm
 
 rbenv: brew
 	is-executable rbenv || brew install rbenv

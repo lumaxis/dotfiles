@@ -8,7 +8,7 @@ for DOTFILE in "$DOTFILES_DIR"/system/.{path,function,function_*,alias,grep,prom
 done
 
 if is-macos; then
-  for DOTFILE in "$DOTFILES_DIR"/system/.{alias,function,nodenv}.macos; do
+  for DOTFILE in "$DOTFILES_DIR"/system/.{alias,function,fnm}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done
 fi

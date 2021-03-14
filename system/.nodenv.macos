@@ -1,3 +1,0 @@
-# nodenv
-
-eval "$(nodenv init -)"
