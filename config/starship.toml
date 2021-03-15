@@ -74,6 +74,12 @@ disabled = true
 [conda]
 disabled = true
 
+[directory]
+read_only = " "
+
+[docker]
+symbol = " "
+
 [dotnet]
 disabled = true
 
@@ -81,6 +87,7 @@ disabled = true
 disabled = true
 
 [git_branch]
+symbol = " "
 style = "bold yellow"
 
 [git_state]
@@ -91,6 +98,9 @@ style = "bold purple"
 [git_status]
 stashed = ""
 
+[golang]
+symbol = " "
+
 [java]
 disabled = true
 
@@ -98,9 +108,20 @@ disabled = true
 symbol = "☸️ "
 disabled = true
 
-# Disable the package module, hiding it from the prompt completely
+[nodejs]
+symbol = " "
+
 [package]
 disabled = true
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[swift]
+symbol = "ﯣ "
 
 [terraform]
 disabled = true
@@ -109,6 +130,6 @@ disabled = true
 description = "Show active VPN connections from Viscosity"
 command = "osascript -l JavaScript -e \"Application('Viscosity').connections.whose({ state: 'Connected' }).name().join(', ')\""
 when = "test $(osascript -l JavaScript -e \"Application('Viscosity').connections.whose({ state: 'Connected' }).name().join(', ')\")"
-symbol = "🌐"
+symbol = " "
 style = "red"
 format = "on [$symbol($output )]($style)"
