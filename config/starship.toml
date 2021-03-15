@@ -98,18 +98,9 @@ disabled = true
 symbol = "☸️ "
 disabled = true
 
-[nix_shell]
-disabled = true
-
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
-
-[ruby]
-disabled = false
-
-[rust]
-disabled = false
 
 [terraform]
 disabled = true
