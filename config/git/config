@@ -21,9 +21,6 @@
 	defaultBranch = main
 	templatedir = ~/.config/git/template
 
-[credential]
-	helper = osxkeychain
-
 [grep]
 	lineNumber = true
 
@@ -73,5 +70,6 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+
 [pull]
 	rebase = true
