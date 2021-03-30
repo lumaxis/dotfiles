@@ -14,7 +14,7 @@ export ZSH=$HOME/.config/oh-my-zsh
 #ZSH_THEME="kennethreitz"
 
 #Fabis Theme:
-ZSH_THEME="jreese"
+#ZSH_THEME="jreese"
 
 #orta's Theme:
 #ZSH_THEME="powerline"
