@@ -77,7 +77,7 @@ disabled = true
 [directory]
 read_only = " "
 
-[docker]
+[docker_context]
 symbol = " "
 
 [dotnet]
@@ -91,9 +91,9 @@ symbol = " "
 style = "bold yellow"
 
 [git_state]
-progress_divider = " of "
 cherry_pick = "🍒 PICKING"
 style = "bold purple"
+format = '\([$state( $progress_current of $progress_total)]($style)\) '
 
 [git_status]
 stashed = ""
