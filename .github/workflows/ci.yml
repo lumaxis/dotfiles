@@ -36,10 +36,13 @@ jobs:
         rm /usr/local/bin/2to3
         rm /usr/local/bin/aws
         rm /usr/local/bin/aws_completer
-      if: ${{ startsWith(matrix.os, 'macos') }}
+      if: startsWith(matrix.os, 'macos')
     - name: Unlink preinstalled node
       run: brew unlink node@14
-      if: ${{ startsWith(matrix.os, 'macos') }}
+      if: startsWith(matrix.os, 'macos')
+    - name: Skip Homebrew Casks
+      run: echo "HOMEBREW_BUNDLE_CASK_SKIP=$(HOMEBREW_NO_AUTO_UPDATE=1 brew bundle list --casks --file install/Brewfile | tr '\n' ' ')" >> $GITHUB_ENV
+      if: startsWith(matrix.os, 'macos')
 
     - name: Checkout repo
       uses: actions/checkout@v2
