@@ -34,7 +34,7 @@ ifndef CI
 	while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 endif
 
-packages-macos: ohmyzsh brew-packages ibrew-packages node-packages gems python-packages
+packages-macos: ohmyzsh brew-packages node-packages gems python-packages
 
 packages-linux: ohmyzsh
 	export FORCE=1; curl -fsSL https://starship.rs/install.sh | bash
@@ -87,9 +87,6 @@ endif
 
 brew-packages: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
-
-ibrew-packages:
-	arch -x86_64 /usr/local/bin/brew bundle --file=$(DOTFILES_DIR)install/iBrewfile
 
 apps: brew
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
