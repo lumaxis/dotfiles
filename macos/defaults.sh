@@ -1,7 +1,7 @@
 osascript -e 'tell application "System Preferences" to quit'
 
 echo "What's the name of this computer?"
-read COMPUTER_NAME
+read -r COMPUTER_NAME
 
 # Ask for the administrator password upfront
 sudo -v

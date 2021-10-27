@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -z "make" ]; then
+if command -v make >/dev/null; then
   echo "No make available. Aborting."
 else
   echo "Installing dotfiles..."
