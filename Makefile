@@ -9,9 +9,9 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 all: $(OS)
 
-macos: sudo brew change-shell node ruby packages-macos link mackup
+macos: sudo brew node ruby packages-macos link mackup
 
-linux: sudo core-linux brew change-shell packages-linux link
+linux: sudo core-linux brew packages-linux link
 
 core-linux:
 	sudo apt-get update
@@ -60,11 +60,6 @@ zsh-macos: brew
 
 zsh-linux:
 	is-executable zsh || sudo apt-get install -y --no-install-recommends zsh
-
-change-shell: zsh-$(OS)
-ifndef CI
-	sudo chsh -s $$(which zsh)
-endif
 
 ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
