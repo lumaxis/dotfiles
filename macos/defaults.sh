@@ -52,12 +52,6 @@ defaults write com.apple.sound.beep.feedback -bool false
 # Menu bar: show battery percentage
 defaults write com.apple.menuextra.battery ShowPercent YES
 
-# Menu bar: add volume item if it doesn't exist yet
-volume=$(grep "Volume.menu" ~/Library/Preferences/com.apple.systemuiserver.plist -c)
-if [ $volume = 0 ]; then
-    open '/System/Library/CoreServices/Menu Extras/Volume.menu'
-fi
-
 # Disable opening and closing window animations
 #defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
 

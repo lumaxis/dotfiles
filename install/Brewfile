@@ -5,7 +5,6 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "kryptco/tap"
 tap "nodenv/nodenv"
 tap "vitorgalvao/tiny-scripts"
 tap "warrensbox/tap"
@@ -15,8 +14,6 @@ brew "openssl@1.1"
 brew "python@3.9"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.8"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # GNU File, Shell, and Text utilities
@@ -43,14 +40,14 @@ brew "git"
 brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Keep your Mac's application settings in sync
 brew "mackup"
-# Mac App Store command-line interface
-brew "mas"
 # Open source relational database management system
 brew "mysql@5.7", restart_service: true
 # Platform built on V8 to build network applications
@@ -61,8 +58,12 @@ brew "node@14"
 brew "parallel"
 # Parallel gzip
 brew "pigz", link: false
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
 # Parallel versions of OpenSSH and related tools
 brew "pssh"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.8"
 # Ruby version manager
 brew "rbenv"
 # Make aliases for Ruby versions
@@ -71,9 +72,7 @@ brew "rbenv-aliases"
 brew "remake"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Static analysis and lint tool, for (ba)sh scripts
-brew "shellcheck"
-# Cross-shell prompt for astronauts
+# The cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
