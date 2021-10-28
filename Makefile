@@ -54,7 +54,7 @@ brew:
 	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
 
 zsh-macos: ZSH_BIN=/usr/local/bin/zsh
-zsh-macos: SHELLS=/private/etc/shells
+zsh-macos: SHELLS=/etc/shells
 zsh-macos: brew
 	if ! grep -q $(ZSH_BIN) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS); fi
 
