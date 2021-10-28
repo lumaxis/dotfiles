@@ -1,7 +1,7 @@
 SHELL = /bin/bash -o pipefail
 DOTFILES_DIR := $(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 OS := $(shell bin/is-supported bin/is-macos macos linux)
-PATH := $(DOTFILES_DIR)bin:/opt/homebrew/bin:$(PATH)
+PATH := $(DOTFILES_DIR)bin:/opt/homebrew/bin:/usr/local/bin:$(PATH)
 export XDG_CONFIG_HOME := $(HOME)/.config
 export STOW_DIR := $(DOTFILES_DIR)
 
