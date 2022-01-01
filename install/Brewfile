@@ -1,3 +1,4 @@
+tap "github/packages"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -6,19 +7,22 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "nodenv/nodenv"
-tap "vitorgalvao/tiny-scripts"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Decentralized dependency manager for Cocoa
 brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Tool for managing dock items
@@ -44,9 +48,11 @@ brew "mackup"
 # Mac App Store command-line interface
 brew "mas"
 # Open source relational database management system
-brew "mysql"
+brew "mysql", restart_service: true
 # Platform built on V8 to build network applications
 brew "node"
+# Platform built on V8 to build network applications
+brew "node@14"
 # Shell command parallelization utility
 brew "parallel"
 # Parallel gzip
@@ -57,10 +63,14 @@ brew "pinentry-mac"
 brew "pssh"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.8"
+# Emulator for x86 and PowerPC
+brew "qemu"
 # Ruby version manager
 brew "rbenv"
 # Make aliases for Ruby versions
 brew "rbenv-aliases"
+# Persistent key-value database, with built-in net interface
+brew "redis", restart_service: true
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
 # Search tool like grep and The Silver Searcher
@@ -87,10 +97,14 @@ brew "zsh"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# AWS role assumption tool
+brew "github/packages/awssume"
 # Password manager that keeps all passwords secure behind one password
 cask "1password-beta"
 # Apple TV Aerial screensaver
 cask "aerial"
+# Menu bar tool to limit maximum charging percentage
+cask "aldente"
 # Application launcher and productivity software
 cask "alfred"
 # Application uninstaller
@@ -101,6 +115,8 @@ cask "arq"
 cask "bartender"
 # Scriptable scratchpad for developers
 cask "boop"
+# Official internet speed test from the German Bundesnetzagentur
+cask "breitbandmessung"
 # Contacts manager
 cask "cardhop"
 # Web debugging Proxy application
@@ -120,6 +136,8 @@ cask "deckset"
 cask "discord"
 # Control your Elgato Key Lights
 cask "elgato-control-center"
+# Assign keys, and then decorate and label them
+cask "elgato-stream-deck"
 # Menu bar utility for Elgato Thunderbolt docks
 cask "elgato-thunderbolt-dock"
 # VPN and encryption software
@@ -134,6 +152,7 @@ cask "font-fira-code-nerd-font"
 cask "font-fira-mono"
 # Typeface made for developers
 cask "font-jetbrains-mono"
+cask "font-open-sans"
 cask "font-permanent-marker"
 # Desktop client for GitHub repositories
 cask "github"
@@ -159,6 +178,10 @@ cask "kaleidoscope"
 cask "kextviewr"
 # Create, manage and debug system- and user services
 cask "launchcontrol"
+# Provides access to camera controls
+cask "logitech-camera-settings"
+# Media key forwarder for iTunes and Spotify
+cask "macmediakeyforwarder"
 # Detailed information on every Apple product ever made
 cask "mactracker"
 # Track and update to the latest versions of installed software
@@ -171,6 +194,8 @@ cask "microsoft-edge"
 cask "microsoft-edge-beta"
 # Office suite
 cask "microsoft-office"
+# Meet, chat, call, and collaborate in just one place
+cask "microsoft-teams"
 # German banking and financial management software
 cask "moneymoney"
 # Silence embarrassing notifications while screensharing
@@ -204,6 +229,8 @@ cask "rubymine"
 cask "screens"
 # Remote desktop software
 cask "screens-connect"
+# Store SSH keys in the Secure Enclave
+cask "secretive"
 # Instant messaging application focusing on security
 cask "signal"
 # Digital design and prototyping platform
@@ -212,6 +239,8 @@ cask "sketch"
 cask "skype"
 # Team communication and collaboration software
 cask "slack"
+# Application to control your PlayStation 4 or PlayStation 5
+cask "sony-ps-remote-play"
 # Application to control your PlayStation 4
 cask "sony-ps4-remote-play"
 # Notepad with a built-in calculator
@@ -236,10 +265,14 @@ cask "tower"
 cask "transmit"
 # Control your data usage on slow or expensive networks
 cask "tripmode"
+# VPN client for secure internet access and private browsing
+cask "viscosity"
 # Open-source code editor
 cask "visual-studio-code"
 # Code editor
 cask "visual-studio-code-insiders"
+# Create, manage, and run virtual machines
+cask "vmware-fusion-tech-preview"
 # Desktop client for WhatsApp
 cask "whatsapp"
 # Install and switch between multiple versions of Xcode
@@ -259,8 +292,6 @@ mas "PDF Toolkit+", id: 545164971
 mas "Pixelmator Pro", id: 1289583905
 mas "Spark", id: 1176895641
 mas "stts", id: 1187772509
-mas "The Unarchiver", id: 425424353
-mas "Things", id: 904280696
 mas "StopTheMadness", id: 1376402589
 mas "Trello", id: 1278508951
 mas "Tweetbot", id: 1384080005
