@@ -53,8 +53,8 @@ export ZSH=$HOME/.config/oh-my-zsh
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Use VS Code Insiders with vscode oh-my-zsh plugin
-VSCODE=code-insiders
+# Set VS Code executable for the vscode oh-my-zsh plugin
+VSCODE=code
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

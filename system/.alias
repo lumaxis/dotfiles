@@ -58,8 +58,9 @@ alias sshconfig='$EDITOR ~/.ssh/config'
 alias zshconfig='$EDITOR ~/.zshrc'
 
 # VS Code
-
-alias code="code-insiders"
+if is-executable code-insiders; then
+  alias code="code-insiders"
+fi
 
 # kubectl
 
