@@ -22,6 +22,7 @@ prepend-path "/usr/sbin"
 prepend-path "/usr/local/sbin"
 prepend-path "/opt/homebrew/sbin"
 prepend-path "$HOME/.githubcli/bin"
+prepend-path "$HOME/.cargo/bin"
 
 if ! is-macos; then
   test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
