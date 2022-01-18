@@ -1,7 +1,7 @@
 # Resolve DOTFILES_DIR (assuming ~/dotfiles on distros without readlink and/or  ${(%):-%N})
 
-READLINK=$(which greadlink 2>/dev/null || which readlink)
 CURRENT_SCRIPT=${(%):-%N}
+READLINK=$(which readlink)
 
 if [[ -n $CURRENT_SCRIPT && -x "$READLINK" ]]; then
   SCRIPT_PATH=$($READLINK -f "$CURRENT_SCRIPT")
