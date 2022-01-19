@@ -1,7 +1,17 @@
 # Resolve DOTFILES_DIR (assuming ~/dotfiles on distros without readlink and/or  ${(%):-%N})
 
 CURRENT_SCRIPT=${(%):-%N}
-READLINK=$(which readlink)
+
+if type /opt/homebrew/bin/greadlink >/dev/null; then
+  # Use greadlink when installed in new Homebrew directory
+  READLINK=/opt/homebrew/bin/greadlink
+elif type /usr/local/bin/greadlink >/dev/null; then
+  # Use greadlink when installed in legacy Homebrew directory
+  READLINK=/usr/local/bin/greadlink
+elif [[ ! "$OSTYPE" =~ ^darwin ]]; then
+  # Only look for regular readlink when not on macOS because it the macOS version does not support the -f flag
+  READLINK=$(which readlink)
+fi
 
 if [[ -n $CURRENT_SCRIPT && -x "$READLINK" ]]; then
   SCRIPT_PATH=$($READLINK -f "$CURRENT_SCRIPT")
