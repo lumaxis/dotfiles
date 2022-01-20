@@ -1,7 +1,7 @@
 # Define helper function
 
 prepend-path() {
-  [ -d $1 ] && PATH="$1:$PATH"
+  [ -d "$1" ] && PATH="$1:$PATH"
 }
 
 # Start with system path
