@@ -6,8 +6,11 @@ prepend-path() {
 
 # Start with system path
 # Retrieve it from getconf, otherwise it's just current $PATH
+# Do not read PATH via getconf in a GitHub Codespace
 
-$DOTFILES_DIR/bin/is-executable getconf && PATH=$($(command -v getconf) PATH)
+if [ -z "$CODESPACES" ]; then
+  "$DOTFILES_DIR"/bin/is-executable getconf && PATH=$($(command -v getconf) PATH)
+fi
 
 # Prepend new items to path (if directory exists)
 
