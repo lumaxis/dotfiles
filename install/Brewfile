@@ -52,7 +52,7 @@ brew "mysql", restart_service: true
 # Platform built on V8 to build network applications
 brew "node"
 # Platform built on V8 to build network applications
-brew "node@14"
+brew "node@16"
 # Shell command parallelization utility
 brew "parallel"
 # Parallel gzip
