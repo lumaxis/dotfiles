@@ -37,7 +37,7 @@ endif
 packages-macos: ohmyzsh brew-packages node-packages gems python-packages
 
 packages-linux: ohmyzsh
-	export FORCE=1; curl -fsSL https://starship.rs/install.sh | bash
+	export FORCE=1; curl -fsSL https://starship.rs/install.sh | sh
 
 link: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE -a ! -h $(HOME)/$$FILE ]; then mv -v $(HOME)/$$FILE{,.bak}; fi; done
