@@ -62,6 +62,9 @@
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
 
+[rebase]
+	autoStash = true
+
 [mergetool]
 	prompt = false
 [mergetool "Kaleidoscope"]
