@@ -6,7 +6,7 @@
 [includeIf "gitdir/i:~/Developer/Work/"]
 	path = ./work/config
 
-[includeIf "gitdir/i:/workspaces/github"]
+[includeIf "gitdir/i:/workspaces/github/"]
 	path = ./work/config
 
 [github]
