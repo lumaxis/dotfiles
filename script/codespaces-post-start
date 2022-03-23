@@ -15,5 +15,6 @@ apt-get install -y \
   zsh-autosuggestions
 
 # Unset git settings that conflict with codespaces
+git config --file /root/.config/git/config --unset user.email
 git config --file /root/.config/git/config --unset user.signingkey
 git config --file /root/.config/git/config --unset gpg.program

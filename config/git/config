@@ -6,9 +6,6 @@
 [includeIf "gitdir/i:~/Developer/Work/"]
 	path = ./work/config
 
-[includeIf "gitdir/i:/workspaces/github/"]
-	path = ./work/config
-
 [github]
 	user = lumaxis
 
