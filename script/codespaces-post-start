@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Adapted from https://github.com/MikeMcQuaid/dotfiles/blob/master/script/codespaces-post-start
+#
+# Run by github/github codespaces after starting
+
+# Always want to use ZSH as my default shell (e.g. for SSH)
+if ! grep -q "root.*/bin/zsh" /etc/passwd
+then
+  chsh -s /bin/zsh root
+fi
+
+# Install some developer tools and setup Linux how I like it
+apt-get install -y \
+  zsh-autosuggestions
+
+# Unset git settings that conflict with codespaces
+git config --global --unset user.signingkey
+git config --global --unset gpg.program
