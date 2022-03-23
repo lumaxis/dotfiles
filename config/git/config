@@ -28,7 +28,7 @@
 	lineNumber = true
 
 [commit]
-	gpgSign = true
+	gpgsign = true
 
 [gpg]
 	program = gpg
