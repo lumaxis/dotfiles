@@ -5,9 +5,9 @@
 # Run by github/github codespaces after starting
 
 # Always want to use ZSH as my default shell (e.g. for SSH)
-if ! grep -q "root.*/bin/zsh" /etc/passwd
+if ! grep -q "vscode.*/bin/zsh" /etc/passwd
 then
-  chsh -s /bin/zsh root
+  chsh -s /bin/zsh vscode
 fi
 
 # Install some developer tools and setup Linux how I like it
