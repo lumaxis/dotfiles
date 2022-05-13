@@ -7,7 +7,7 @@
 # Always want to use ZSH as my default shell (e.g. for SSH)
 if ! grep -q "vscode.*/bin/zsh" /etc/passwd
 then
-  chsh -s /bin/zsh vscode
+  sudo chsh -s /bin/zsh vscode
 fi
 
 # Install some developer tools and setup Linux how I like it
