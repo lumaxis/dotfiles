@@ -11,7 +11,7 @@ then
 fi
 
 # Install some developer tools and setup Linux how I like it
-apt-get install -y \
+sudo apt-get install -y \
   zsh-autosuggestions
 
 # Unset git settings that conflict with codespaces
