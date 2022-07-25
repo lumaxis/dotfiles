@@ -76,5 +76,8 @@
 	required = true
 	process = git-lfs filter-process
 
+[push]
+	autoSetupRemote = true
+
 [pull]
 	rebase = true
