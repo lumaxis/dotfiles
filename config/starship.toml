@@ -127,11 +127,3 @@ symbol = "ﯣ "
 
 [terraform]
 disabled = true
-
-[custom.vpn]
-description = "Show active VPN connections from Viscosity"
-command = "osascript -l JavaScript -e \"Application('Viscosity').connections.whose({ state: 'Connected' }).name().join(', ')\""
-when = "test $(osascript -l JavaScript -e \"Application('Viscosity').connections.whose({ state: 'Connected' }).name().join(', ')\")"
-symbol = " "
-style = "red"
-format = "on [$symbol($output )]($style)"
