@@ -8,20 +8,25 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "nodenv/nodenv"
+tap "yt-dlp/taps"
 # Automate deployment, configuration, and upgrading
 brew "ansible"
-# Shell extension to jump to frequently used directories
-brew "autojump"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
-# Official Amazon AWS command-line interface
-brew "awscli"
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-# Decentralized dependency manager for Cocoa
-brew "carthage"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Shell extension to jump to frequently used directories
+brew "autojump"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Microsoft Azure CLI 2.0
+brew "azure-cli"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Decentralized dependency manager for Cocoa
+brew "carthage"
 # Load/unload environment variables based on $PWD
 brew "direnv"
 # Pack, ship and run any application as a lightweight container
@@ -34,9 +39,7 @@ brew "duti"
 brew "fd"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
-# Fast and simple Node.js version manager
-brew "fnm"
-# Command-line JSON processing tool
+# Terminal JSON viewer
 brew "fx"
 # GitHub command-line tool
 brew "gh"
@@ -57,13 +60,13 @@ brew "mas"
 # Open source relational database management system
 brew "mysql", restart_service: true
 # Platform built on V8 to build network applications
-brew "node", link: false
+brew "node"
 # Platform built on V8 to build network applications
-brew "node@16", link: true
-# OpenBSD freely-licensed SSH connectivity tools
-brew "openssh"
+brew "node@16"
 # Shell command parallelization utility
 brew "parallel"
+# General-purpose scripting language
+brew "php"
 # Parallel gzip
 brew "pigz"
 # Pinentry for GPG on Mac
@@ -74,12 +77,8 @@ brew "pssh"
 brew "python@3.8"
 # Emulator for x86 and PowerPC
 brew "qemu"
-# Ruby version manager
-brew "rbenv"
-# Make aliases for Ruby versions
-brew "rbenv-aliases"
 # Persistent key-value database, with built-in net interface
-brew "redis", restart_service: true
+brew "redis"
 # GNU Make with improved error handling, tracing, and a debugger
 brew "remake"
 # Search tool like grep and The Silver Searcher
@@ -92,6 +91,8 @@ brew "shellcheck"
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Terraform version manager inspired by rbenv
+brew "tfenv"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
@@ -110,6 +111,8 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # AWS role assumption tool
 brew "github/packages/awssume"
+# A youtube-dl fork with additional features and fixes
+brew "yt-dlp/taps/yt-dlp"
 # Password manager that keeps all passwords secure behind one password
 cask "1password-beta"
 # Apple TV Aerial screensaver
@@ -118,16 +121,21 @@ cask "aerial"
 cask "aldente"
 # Application launcher and productivity software
 cask "alfred"
+# CPU management applicataion
+cask "app-tamer"
 # Application uninstaller
 cask "appcleaner"
 # Multi-cloud backup application
 cask "arq"
 # Menu bar icon organizer
 cask "bartender"
+# Universal chat app powered by Matrix, unifying 15 different chat networks
+cask "beeper"
 # Scriptable scratchpad for developers
 cask "boop"
 # Official internet speed test from the German Bundesnetzagentur
 cask "breitbandmessung"
+cask "caldigit-docking-utility"
 # Contacts manager
 cask "cardhop"
 # Web debugging Proxy application
@@ -140,6 +148,8 @@ cask "cleanshot"
 cask "coconutbattery"
 # Disk space visualizer
 cask "daisydisk"
+# Photography workflow application and raw developer
+cask "darktable"
 # API documentation browser and code snippet manager
 cask "dash"
 # Databases & SQL IDE
@@ -149,8 +159,6 @@ cask "deckset"
 cask "discord"
 # Control your Elgato Key Lights
 cask "elgato-control-center"
-# Assign keys, and then decorate and label them
-cask "elgato-stream-deck"
 # Menu bar utility for Elgato Thunderbolt docks
 cask "elgato-thunderbolt-dock"
 # VPN and encryption software
@@ -199,6 +207,8 @@ cask "macmediakeyforwarder"
 cask "mactracker"
 # Track and update to the latest versions of installed software
 cask "macupdater"
+# Simple and elegant markdown editor
+cask "mark-text"
 # Provides updates to various Microsoft products
 cask "microsoft-auto-update"
 # Web browser
@@ -221,11 +231,16 @@ cask "plex"
 cask "pocket-casts"
 # Collaboration platform for API development
 cask "postman"
+# Tool to organize photo libraries
+cask "powerphotos"
 # Modern and intuitive HTTP Debugging Proxy app
 cask "proxyman"
+# QuickLook plugin for JSON files
 cask "quicklook-json"
 # Network monitor and firewall
 cask "radio-silence"
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -258,6 +273,8 @@ cask "sony-ps-remote-play"
 cask "sony-ps4-remote-play"
 # Notepad with a built-in calculator
 cask "soulver"
+# Sound and audio controller
+cask "soundsource"
 # Music streaming service
 cask "spotify"
 # Tool for managing the OpenSSH ssh client configuration file
@@ -280,8 +297,6 @@ cask "tower"
 cask "transmit"
 # Control your data usage on slow or expensive networks
 cask "tripmode"
-# VPN client for secure internet access and private browsing
-cask "viscosity"
 # Open-source code editor
 cask "visual-studio-code"
 # Code editor
@@ -293,13 +308,13 @@ cask "whatsapp"
 # Install and switch between multiple versions of Xcode
 cask "xcodes"
 mas "1Blocker", id: 1365531024
-mas "Apple Configurator 2", id: 1037126344
+mas "1Password for Safari", id: 1569813296
 mas "Bear", id: 1091189122
 mas "Deliveries", id: 290986013
-mas "Flighty", id: 1358823008
+mas "ICE Buddy", id: 1595947689
 mas "Keynote", id: 409183694
 mas "LG Screen Manager", id: 1142051783
-mas "MacFamilyTree 9", id: 1458866808
+mas "MacFamilyTree 10", id: 1567970985
 mas "Messenger", id: 1480068668
 mas "Netmo", id: 1192219511
 mas "Numbers", id: 409203825
@@ -311,9 +326,11 @@ mas "Spark", id: 1176895641
 mas "SponsorBlock for YouTube - Skip Sponsorships", id: 1573461917
 mas "StopTheMadness", id: 1376402589
 mas "stts", id: 1187772509
+mas "TestFlight", id: 899247664
 mas "Trello", id: 1278508951
 mas "Tweetbot", id: 1384080005
 mas "Twitter", id: 1482454543
+mas "Velja", id: 1607635845
 mas "Webcam Settings", id: 533696630
 mas "WiFi Signal", id: 525912054
 mas "xScope", id: 889428659
