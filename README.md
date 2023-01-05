@@ -82,3 +82,9 @@ Alternatively, you can have an additional, personal dotfiles repo at `~/.extra`.
 ## Credits
 
 Many thanks to the [dotfiles community](https://dotfiles.github.io).
+
+## License
+
+These files are licensed under the [MIT license](./licenses/MIT) except the following files which are taken from [Mike McQuaid](https://github.com/MikeMcQuaid/dotfiles) and are licensed under the [GPLv3 license](./licenses/GPLv3):
+
+- [bin/touchid-enable-pam-sudo](./bin/touchid-enable-pam-sudo)
