@@ -1,7 +1,6 @@
 [user]
 	name = Lukas Spieß
 	email = lukas.spiess@gmail.com
-	signingkey = 9C9B7EC4E32DDDE12135366518488BCD4C52C648
 
 [includeIf "gitdir/i:~/Developer/Work/"]
 	path = ./work/config
@@ -17,6 +16,10 @@
 	autocrlf = input
 	trustctime = false
 
+[credential]
+	# Use custom dotfiles credentials helper.
+	helper = dotfiles
+
 [init]
 	defaultBranch = main
 	templatedir = ~/.config/git/template
@@ -28,7 +31,8 @@
 	gpgsign = true
 
 [gpg]
-	program = gpg
+	# Use custom dotfiles GPG helper that automatically handles GitHub Codespaces.
+	program = git-gpg-dotfiles
 
 [fetch]
 	prune = true
