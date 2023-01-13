@@ -5,6 +5,9 @@
 [includeIf "gitdir/i:~/Developer/Work/"]
 	path = ./work/config
 
+[includeIf "hasconfig:remote.*.url:**/github.com/github/**"]
+	path = ./work/config
+
 [github]
 	user = lumaxis
 
