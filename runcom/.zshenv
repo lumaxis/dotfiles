@@ -9,7 +9,7 @@ elif type /usr/local/bin/greadlink >/dev/null; then
   # Use greadlink when installed in legacy Homebrew directory
   READLINK=/usr/local/bin/greadlink
 elif [[ ! "$OSTYPE" =~ ^darwin ]]; then
-  # Only look for regular readlink when not on macOS because it the macOS version does not support the -f flag
+  # Only look for regular readlink when not on macOS because the macOS version does not support the -f flag
   READLINK=$(which readlink)
 fi
 
