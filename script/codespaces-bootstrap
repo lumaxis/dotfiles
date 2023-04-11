@@ -13,8 +13,3 @@ fi
 # Install some developer tools and setup Linux how I like it
 sudo apt-get install -y \
   zsh-autosuggestions
-
-# Unset git settings that conflict with codespaces
-git config --file /home/vscode/.config/git/config --unset user.email
-git config --file /home/vscode/.config/git/config --unset user.signingkey
-git config --file /home/vscode/.config/git/config --unset gpg.program
