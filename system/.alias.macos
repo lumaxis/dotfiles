@@ -71,6 +71,3 @@ alias pbspaces="pbpaste | expand | pbcopy"
 # User Defaults shortcuts
 alias dr="defaults read"
 alias dw="defaults write"
-
-# cask-repair
-alias cask-repair='GITHUB_USER=lumaxis GITHUB_TOKEN=$(echo url=https://github.com | git credential fill | sed -n "s/.*password=\(.*\)$/\1/p") cask-repair'
