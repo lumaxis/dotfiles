@@ -29,6 +29,8 @@ if [[ -f $ZSH_AUTOSUGGEST_FILE ]]; then
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 fi
 
-
 # Setup Statship
 eval "$(starship init zsh)"
+
+# Setup Copilot CLI
+eval "$(github-copilot-cli alias -- "$0")"
