@@ -8,6 +8,9 @@
 [includeIf "hasconfig:remote.*.url:**/github.com/github/**"]
 	path = ./work/config
 
+[includeIf "hasconfig:remote.*.url:**/github.com/githubnext/**"]
+	path = ./work/config
+
 [github]
 	user = lumaxis
 
