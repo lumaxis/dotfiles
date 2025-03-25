@@ -3,23 +3,13 @@
 [ -z "$PS1" ] && return
 
 # Source the dotfiles (order matters)
-for DOTFILE in "$DOTFILES_DIR"/system/.{path,function,function_*,alias,grep,prompt,autojump,oh-my-zsh,completion,custom}; do
+for DOTFILE in "$DOTFILES_DIR"/system/.{path,function,function_*,alias,grep,prompt,autojump,oh-my-zsh,completion}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
 if is-macos; then
   for DOTFILE in "$DOTFILES_DIR"/system/.{alias,function,fnm}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
-  done
-fi
-
-# Hook for extra/custom stuff
-
-DOTFILES_EXTRA_DIR="$HOME/.extra"
-
-if [ -d "$DOTFILES_EXTRA_DIR" ]; then
-  for EXTRAFILE in "$DOTFILES_EXTRA_DIR"/runcom/*.sh; do
-    [ -f "$EXTRAFILE" ] && . "$EXTRAFILE"
   done
 fi
 

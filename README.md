@@ -65,10 +65,6 @@ make
        test             Run tests
        update           Update packages and pkg managers (OS, brew, npm, gem)
 
-## Customize/extend
-
-You can put your custom settings, such as Git credentials in the `system/.custom` file which will be sourced from `.zhsrc` automatically. This file is in `.gitignore`.
-
 Alternatively, you can have an additional, personal dotfiles repo at `~/.extra`. The runcom `.zhsrc` sources all `~/.extra/runcom/*.sh` files.
 
 ## Additional resources
