@@ -2,7 +2,7 @@
 	name = Lukas Spieß
 	email = lukas.spiess@gmail.com
 
-[includeIf "gitdir/i:~/Developer/Work/"]
+[includeIf "gitdir:~/Developer/"]
 	path = ./work/config
 
 [includeIf "hasconfig:remote.*.url:**/github.com/github/**"]
@@ -22,10 +22,6 @@
 	autocrlf = input
 	trustctime = false
 
-[credential]
-	# Use custom dotfiles credentials helper.
-	helper = dotfiles
-
 [init]
 	defaultBranch = main
 	templatedir = ~/.config/git/template
@@ -33,12 +29,16 @@
 [grep]
 	lineNumber = true
 
-[commit]
-	gpgsign = true
+[include]
+	path = ./ssh-signing/config
 
-[gpg]
-	# Use custom dotfiles GPG helper that automatically handles GitHub Codespaces.
-	program = git-gpg-dotfiles
+# Use GitHub Codespaces config to override especially signing settings to make automagic GPG signing work
+[includeIf "gitdir:/workspaces/"]
+	path = /etc/gitconfig
+
+# Include Codespaces-specific config
+[includeIf "gitdir:/workspaces/"]
+	path = ./codespaces/config
 
 [fetch]
 	prune = true
