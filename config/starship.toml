@@ -47,10 +47,8 @@ $memory_usage\
 $aws\
 $gcloud\
 $openstack\
-${custom.vpn}\
 $env_var\
 $crystal\
-$custom\
 $cmd_duration\
 $line_break\
 $lua\
