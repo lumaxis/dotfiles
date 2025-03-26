@@ -1,32 +1,34 @@
 # Setup zsh-syntax-highlighting
-ZSH_SYNTAX_HIGHLITING_FILE=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-if [[ -f $ZSH_SYNTAX_HIGHLITING_FILE ]]; then
-  source $ZSH_SYNTAX_HIGHLITING_FILE
-fi
+if is-executable brew; then
+  ZSH_SYNTAX_HIGHLITING_FILE=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  if [[ -f $ZSH_SYNTAX_HIGHLITING_FILE ]]; then
+    source $ZSH_SYNTAX_HIGHLITING_FILE
+  fi
 
-# Setup zsh-autosuggestions
-ZSH_AUTOSUGGEST_FILE=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-if [[ -f $ZSH_AUTOSUGGEST_FILE ]]; then
-  ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
-  ZSH_AUTOSUGGEST_USE_ASYNC=true
-  source $ZSH_AUTOSUGGEST_FILE
+  # Setup zsh-autosuggestions
+  ZSH_AUTOSUGGEST_FILE=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  if [[ -f $ZSH_AUTOSUGGEST_FILE ]]; then
+    ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
+    ZSH_AUTOSUGGEST_USE_ASYNC=true
+    source $ZSH_AUTOSUGGEST_FILE
 
-  # This speeds up pasting w/ autosuggest
-  # https://github.com/zsh-users/zsh-autosuggestions/issues/238
-  pasteinit() {
-    OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-    zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-  }
+    # This speeds up pasting w/ autosuggest
+    # https://github.com/zsh-users/zsh-autosuggestions/issues/238
+    pasteinit() {
+      OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+      zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+    }
 
-  pastefinish() {
-    zle -N self-insert $OLD_SELF_INSERT
-  }
+    pastefinish() {
+      zle -N self-insert $OLD_SELF_INSERT
+    }
 
-  zstyle :bracketed-paste-magic paste-init pasteinit
-  zstyle :bracketed-paste-magic paste-finish pastefinish
+    zstyle :bracketed-paste-magic paste-init pasteinit
+    zstyle :bracketed-paste-magic paste-finish pastefinish
 
-  # https://github.com/zsh-users/zsh-autosuggestions/issues/351
-  ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+    # https://github.com/zsh-users/zsh-autosuggestions/issues/351
+    ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+  fi
 fi
 
 # Setup Statship
