@@ -19,16 +19,16 @@ if [ -z "$CODESPACES" ]; then
   prepend-path "/usr/bin"
   prepend-path "/usr/local/bin"
   prepend-path "/opt/homebrew/bin"
+  prepend-path "$HOME/bin"
+  prepend-path "/sbin"
+  prepend-path "/usr/sbin"
+  prepend-path "/usr/local/sbin"
+  prepend-path "/opt/homebrew/sbin"
+  prepend-path "$HOME/.githubcli/bin"
+  prepend-path "$HOME/.cargo/bin"
 fi
 
 prepend-path "$DOTFILES_DIR/bin"
-prepend-path "$HOME/bin"
-prepend-path "/sbin"
-prepend-path "/usr/sbin"
-prepend-path "/usr/local/sbin"
-prepend-path "/opt/homebrew/sbin"
-prepend-path "$HOME/.githubcli/bin"
-prepend-path "$HOME/.cargo/bin"
 
 if ! is-macos; then
   test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
