@@ -66,8 +66,9 @@ plugins=(git gitignore npm docker vscode)
 if [ -z "$CODESPACES" ]; then
   if is-macos; then
     plugins+=(dash macos)
-    plugins+=(asdf)
   fi
+  # Add version manager (works on all platforms, skip in Codespaces)
+  plugins+=(asdf)
 fi
 
 is-executable tmux && plugins+=(tmux)
