@@ -13,8 +13,5 @@
         "sharat.vscode-brewfile"
       ]
     }
-  },
-  "remoteEnv": {
-    "CODESPACES": "true"
   }
 }
