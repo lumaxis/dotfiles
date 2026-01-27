@@ -39,7 +39,7 @@ jobs:
         rm -f /usr/local/bin/aws_completer || true
       if: ${{ startsWith(matrix.os, 'macos') }}
     - name: Unlink preinstalled node
-      run: brew unlink node@22 || brew unlink node@20 || brew unlink node@18 || brew unlink node@16 || true
+      run: brew unlink node@22 || brew unlink node@20 || brew unlink node@18 || true
       if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Checkout repo

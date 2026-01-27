@@ -2192,45 +2192,6 @@
           }
         }
       },
-      "node@16": {
-        "version": "16.17.0",
-        "bottle": {
-          "rebuild": 0,
-          "root_url": "https://ghcr.io/v2/homebrew/core",
-          "files": {
-            "arm64_monterey": {
-              "cellar": ":any",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:8058af2eb34df2839a23a55cb8cb6d4df7632484695a172a5e6b1873d0fecd44",
-              "sha256": "8058af2eb34df2839a23a55cb8cb6d4df7632484695a172a5e6b1873d0fecd44"
-            },
-            "arm64_big_sur": {
-              "cellar": ":any",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:3aba0ec892bf7a15ad2fad870dc26c11d39a9476622f9c0d28f31de7254a2a45",
-              "sha256": "3aba0ec892bf7a15ad2fad870dc26c11d39a9476622f9c0d28f31de7254a2a45"
-            },
-            "monterey": {
-              "cellar": ":any",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:03ea2f9c2df1c3b0b39eadcfd22b56fb2a41fb93620ba77c0b8f0db652d22cfe",
-              "sha256": "03ea2f9c2df1c3b0b39eadcfd22b56fb2a41fb93620ba77c0b8f0db652d22cfe"
-            },
-            "big_sur": {
-              "cellar": ":any",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:b5faacaa19856e18e85a7c2830d82d879b3a0fce2f3296509925aaa739874b85",
-              "sha256": "b5faacaa19856e18e85a7c2830d82d879b3a0fce2f3296509925aaa739874b85"
-            },
-            "catalina": {
-              "cellar": ":any",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:25ed0921163ae9b71c51ac0978c59419db14e630d609d7a6b9cf219ba7963c1d",
-              "sha256": "25ed0921163ae9b71c51ac0978c59419db14e630d609d7a6b9cf219ba7963c1d"
-            },
-            "x86_64_linux": {
-              "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/node/16/blobs/sha256:f09c9862d44fec050060b662a64e28da5db8d6229a6daacc559e0524bcb47fe4",
-              "sha256": "f09c9862d44fec050060b662a64e28da5db8d6229a6daacc559e0524bcb47fe4"
-            }
-          }
-        }
-      },
       "rust": {
         "version": "1.63.0",
         "bottle": {
