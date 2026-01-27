@@ -45,6 +45,10 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Skip Homebrew Casks
+      run: echo "HOMEBREW_BUNDLE_CASK_SKIP=$(HOMEBREW_NO_AUTO_UPDATE=1 brew bundle list --casks --file install/Brewfile | tr '\n' ' ')" >> $GITHUB_ENV
+      if: ${{ startsWith(matrix.os, 'macos') }}
+
     - name: Run install command
       run: ./install.sh
 
