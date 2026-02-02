@@ -7,7 +7,8 @@ for DOTFILE in "$DOTFILES_DIR"/system/.{path,function,function_*,alias,grep,prom
   [ -f "$DOTFILE" ] && . "$DOTFILE"
 done
 
-if is-macos; then
+# Source macOS-specific files when not in a Codespace
+if [ -z "$CODESPACES" ] && is-macos; then
   for DOTFILE in "$DOTFILES_DIR"/system/.{alias,function,fnm}.macos; do
     [ -f "$DOTFILE" ] && . "$DOTFILE"
   done

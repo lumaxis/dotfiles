@@ -1,7 +1,9 @@
 # Brew
 
 if is-executable brew; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  # Cache brew prefix for performance (avoid multiple slow calls)
+  BREW_PREFIX=${BREW_PREFIX:-$(brew --prefix)}
+  FPATH=$BREW_PREFIX/share/zsh/site-functions:$FPATH
 
   # This is done by oh-my-zsh
   #autoload -Uz compinit

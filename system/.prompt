@@ -1,12 +1,15 @@
 # Setup zsh-syntax-highlighting
 if is-executable brew; then
-  ZSH_SYNTAX_HIGHLITING_FILE=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  if [[ -f $ZSH_SYNTAX_HIGHLITING_FILE ]]; then
-    source $ZSH_SYNTAX_HIGHLITING_FILE
+  # Cache brew prefix for performance (avoid multiple slow calls)
+  BREW_PREFIX=${BREW_PREFIX:-$(brew --prefix)}
+
+  ZSH_SYNTAX_HIGHLIGHTING_FILE=$BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  if [[ -f $ZSH_SYNTAX_HIGHLIGHTING_FILE ]]; then
+    source $ZSH_SYNTAX_HIGHLIGHTING_FILE
   fi
 
   # Setup zsh-autosuggestions
-  ZSH_AUTOSUGGEST_FILE=$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  ZSH_AUTOSUGGEST_FILE=$BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   if [[ -f $ZSH_AUTOSUGGEST_FILE ]]; then
     ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history)
     ZSH_AUTOSUGGEST_USE_ASYNC=true

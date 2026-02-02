@@ -1,5 +1,7 @@
 # Autojump
 
 if is-executable autojump; then
-  [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+  # Cache brew prefix for performance (avoid multiple slow calls)
+  BREW_PREFIX=${BREW_PREFIX:-$(brew --prefix)}
+  [[ -s $BREW_PREFIX/etc/profile.d/autojump.sh ]] && . $BREW_PREFIX/etc/profile.d/autojump.sh
 fi

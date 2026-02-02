@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: docker build . -t dotfiles
@@ -34,16 +34,20 @@ jobs:
     steps:
     - name: Remove existing awscli
       run: |
-        rm /usr/local/bin/2to3
-        rm /usr/local/bin/aws
-        rm /usr/local/bin/aws_completer
+        rm -f /usr/local/bin/2to3* || true
+        rm -f /usr/local/bin/aws || true
+        rm -f /usr/local/bin/aws_completer || true
       if: ${{ startsWith(matrix.os, 'macos') }}
     - name: Unlink preinstalled node
-      run: brew unlink node@16
+      run: brew unlink node@22 || brew unlink node@20 || brew unlink node@18 || true
       if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Checkout repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+
+    - name: Skip Homebrew Casks
+      run: echo "HOMEBREW_BUNDLE_CASK_SKIP=$(HOMEBREW_NO_AUTO_UPDATE=1 brew bundle list --casks --file install/Brewfile | tr '\n' ' ')" >> $GITHUB_ENV
+      if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Run install command
       run: ./install.sh
