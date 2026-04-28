@@ -13,8 +13,8 @@ tap "yt-dlp/taps"
 brew "ansible"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
+# Multi-language runtime version manager
+brew "mise"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Official Amazon AWS command-line interface

@@ -9,7 +9,7 @@ export STOW_DIR := $(DOTFILES_DIR)
 
 all: $(OS)
 
-macos: sudo brew change-shell node ruby packages-macos link mackup
+macos: sudo brew change-shell mise node ruby packages-macos link mackup
 
 linux: sudo core-linux change-shell packages-linux link
 
@@ -70,20 +70,18 @@ ohmyzsh: OH_MY_ZSH_HOME="$(XDG_CONFIG_HOME)/oh-my-zsh"
 ohmyzsh:
 	test -d $(OH_MY_ZSH_HOME) || curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | ZSH=$(OH_MY_ZSH_HOME) sh
 
-fnm: brew
-	is-executable fnm || (curl -fsSL https://fnm.vercel.app/install | bash)
+mise: brew
+	is-executable mise || brew install mise
 
-node: fnm
+mise-node: mise
+	mise use --global node@lts
 
-rbenv: brew
-	is-executable rbenv || brew install rbenv
+node: mise-node
 
-ruby: LATEST_RUBY=$(shell rbenv install -l | grep -v - | tail -1)
-ruby: brew rbenv
-ifndef CI
-	rbenv install -s $(LATEST_RUBY)
-	rbenv global $(LATEST_RUBY)
-endif
+mise-ruby: mise
+	mise use --global ruby@latest
+
+ruby: mise-ruby
 
 brew-packages: brew
 	brew bundle --file=$(DOTFILES_DIR)/install/Brewfile
@@ -92,10 +90,10 @@ apps: brew
 	for EXT in $$(cat install/Codefile); do code --install-extension $$EXT; done
 
 node-packages: node
-	npm install -g $(shell cat install/npmfile)
+	eval "$$(mise env)" && npm install -g $(shell cat install/npmfile)
 
 gems: ruby
-	export PATH=$(HOME)/.rbenv/shims:$(PATH); gem install -N $(shell cat install/Gemfile)
+	eval "$$(mise env)" && gem install -N $(shell cat install/Gemfile)
 
 python-packages: brew
 	pip3 install -q $(shell cat install/pipfile)
