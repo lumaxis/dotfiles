@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         run: docker build . -t dotfiles
@@ -32,18 +32,14 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - name: Remove existing awscli
+    - name: Remove conflicting pre-installed packages
       run: |
-        rm /usr/local/bin/2to3
-        rm /usr/local/bin/aws
-        rm /usr/local/bin/aws_completer
-      if: ${{ startsWith(matrix.os, 'macos') }}
-    - name: Unlink preinstalled node
-      run: brew unlink node@16
+        brew unlink node || true
+        rm -f /usr/local/bin/2to3 /usr/local/bin/aws /usr/local/bin/aws_completer
       if: ${{ startsWith(matrix.os, 'macos') }}
 
     - name: Checkout repo
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Run install command
       run: ./install.sh

@@ -51,9 +51,9 @@ unlink: stow-$(OS)
 	for FILE in $$(\ls -A runcom); do if [ -f $(HOME)/$$FILE.bak ]; then mv -v $(HOME)/$$FILE.bak $(HOME)/$${FILE%%.bak}; fi; done
 
 brew:
-	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash
+	is-executable brew || curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 
-zsh-macos: ZSH_BIN=/usr/local/bin/zsh
+zsh-macos: ZSH_BIN=/opt/homebrew/bin/zsh
 zsh-macos: SHELLS=/etc/shells
 zsh-macos: brew
 	if ! grep -q $(ZSH_BIN) $(SHELLS); then brew install zsh && sudo append $(ZSH_BIN) $(SHELLS); fi
