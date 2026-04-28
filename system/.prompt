@@ -1,8 +1,8 @@
 # Setup zsh-syntax-highlighting
 if is-executable brew; then
-  ZSH_SYNTAX_HIGHLITING_FILE=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  if [[ -f $ZSH_SYNTAX_HIGHLITING_FILE ]]; then
-    source $ZSH_SYNTAX_HIGHLITING_FILE
+  ZSH_SYNTAX_HIGHLIGHTING_FILE=$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  if [[ -f $ZSH_SYNTAX_HIGHLIGHTING_FILE ]]; then
+    source $ZSH_SYNTAX_HIGHLIGHTING_FILE
   fi
 
   # Setup zsh-autosuggestions
@@ -31,5 +31,5 @@ if is-executable brew; then
   fi
 fi
 
-# Setup Statship
+# Setup Starship
 eval "$(starship init zsh)"
