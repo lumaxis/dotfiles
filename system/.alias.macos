@@ -6,8 +6,6 @@ alias cpwd="pwd|tr -d '\n'|pbcopy"
 
 alias gg="$DOTFILES_GIT_GUI"
 
-alias cask="brew cask"
-
 alias edgebeta="open -a ~/Applications/Microsoft\ Edge\ Beta.app"
 alias firefox="open -a ~/Applications/Firefox.app"
 
