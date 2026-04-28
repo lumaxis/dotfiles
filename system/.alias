@@ -13,7 +13,7 @@ alias psgrep="psgrep -i"
 
 # Global aliases
 
-if $(is-supported "alias -g"); then
+if is-supported "alias -g"; then
   alias -g G="| grep -i"
   alias -g H="| head"
   alias -g T="| tail"

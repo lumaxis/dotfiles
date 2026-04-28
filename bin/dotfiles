@@ -2,7 +2,6 @@
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
-SUB_COMMAND_NAME=$2
 
 sub_help () {
   echo "Usage: $BIN_NAME <command>"
@@ -58,7 +57,7 @@ case $COMMAND_NAME in
     ;;
   *)
     shift
-    sub_${COMMAND_NAME} $@
+    sub_${COMMAND_NAME} "$@"
     if [ $? = 127 ]; then
       echo "'$COMMAND_NAME' is not a known command or has errors." >&2
       sub_help

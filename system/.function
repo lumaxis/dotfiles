@@ -20,11 +20,13 @@ get() {
 # Show 256 TERM colors
 
 show-colors() {
-  local X=$(tput op)
-  local Y=$(printf %$((COLUMNS-6))s)
+  local X
+  X=$(tput op)
+  local Y
+  Y=$(printf %$((COLUMNS-6))s)
   for i in {0..256}; do
   o=00$i;
-  echo -e ${o:${#o}-3:3} $(tput setaf $i;tput setab $i)${Y// /=}$X;
+  echo -e "${o:${#o}-3:3}" "$(tput setaf "$i";tput setab "$i")${Y// /=}$X";
   done
 }
 
@@ -37,9 +39,11 @@ calc() {
 # Weather
 
 meteo() {
-  local LOCALE=$(echo ${LANG:-en} | cut -c1-2)
+  local LOCALE
+  LOCALE=$(echo "${LANG:-en}" | cut -c1-2)
   if [ $# -eq 0 ]; then
-    local LOCATION=$(curl -s ipinfo.io/loc)
+    local LOCATION
+    LOCATION=$(curl -s ipinfo.io/loc)
   else
     local LOCATION=$1
   fi
@@ -49,5 +53,5 @@ meteo() {
 # Markdown
 
 markdown() {
-  pandoc $1 | lynx -stdin -dump
+  pandoc "$1" | lynx -stdin -dump
 }

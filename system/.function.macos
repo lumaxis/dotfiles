@@ -1,14 +1,14 @@
 # Change working directory to the top-most Finder window location
 
 cdf() {
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')" || return;
 }
 
 # Dev
 
 d() {
-  $DOTFILES_IDE ${1:-.}
-  $DOTFILES_GIT_GUI ${1:-.}
+  $DOTFILES_IDE "${1:-.}"
+  $DOTFILES_GIT_GUI "${1:-.}"
 }
 
 # Open query in Dash app
