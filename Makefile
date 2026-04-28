@@ -99,8 +99,6 @@ python-packages: brew
 	pip3 install -q $(shell cat install/pipfile)
 
 mackup: link
-	# Necessary until [#632](https://github.com/lra/mackup/pull/632) is fixed
-	ln -s ~/.config/mackup/.mackup.cfg ~
 	ln -s ~/.config/mackup/.mackup ~
 
 test:
